@@ -1,0 +1,252 @@
+body {
+	background-color: #e6e6e6;
+	color: #424242;
+}
+
+#all_body {
+	width: 1200px;
+	margin: 0px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+#dt_all {
+	width: 1200px;
+	height: 800px;
+	margin: 5px 0px;
+	display: flex;
+	flex-direction: row;
+}
+
+#right_column {
+	width: 800px;
+	height: 800px;
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+#cy {
+	width: 790px;
+	height: 790px;
+	background-color: #f9f9f9;
+}
+
+#left_column {
+	width: 400px;
+	height: 800px;
+	box-sizing: border-box;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#title_div {
+	height: 30px;
+	font: bold 30px Arial;
+	text-align: center;
+	margin: 5px 0px;
+}
+
+#dat_buttons_div {
+	width: 390px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 5px 0px;
+}
+
+#dat_selectbox {
+	width: 390px;
+	height: 100px;
+	margin: 5px 0px;
+	border: 0;
+	outline: 0;
+	font: 13px Arial;
+	color: #424242;
+	background-color: #f9f9f9;
+}
+
+#cy_util_row {
+	width: 390px;
+	height: 120px;
+	margin: 5px 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#select_node_type {
+	width: 70px;
+	height: 116px;
+	border: 0;
+	outline: 0;
+	font: 13px Arial;
+	color: #424242;
+	background-color: #f9f9f9;
+	overflow: hidden;
+}
+
+#cy_util_row_right {
+	width: 320px;
+	box-sizing: border-box;
+	padding-left: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+#cy_util_row_right_bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	margin-top: 5px;
+}
+
+/*--------------------------------------------------------*/
+#cy_checkbox_div {
+	width: 130px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#cy_checkbox_div input[type="checkbox"]{
+	display: none;
+}
+#cy_checkbox_div input[type="checkbox"]+label{
+	display: none;
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	padding-left: 25px;
+	padding-right: 10px;
+	font: 15px Arial;
+}
+#cy_checkbox_div input[type="checkbox"]+label::before{
+	content: "";
+	position: absolute;
+	display: block;
+	box-sizing: border-box;
+	width: 15px;
+	height: 15px;
+	margin-top: -8.5px;
+	left: 0;
+	top: 50%;
+	border: none;
+	background-color: #fbfbfb;
+}
+#cy_checkbox_div input[type="checkbox"]:checked+label::after{
+	content: "";
+	position: absolute;
+	display: block;
+	box-sizing: border-box;
+	width: 16px;
+	height: 8px;
+	margin-top: -8px;
+	top: 50%;
+	left: 3px;
+	transform: rotate(-45deg);
+	border-bottom: 3px solid;
+	border-left: 3px solid;
+	border-color:  #848484;
+}
+/*--------------------------------------------------------*/
+
+#cy_buttons_div {
+	width: 312px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 5px;
+}
+
+/*--------------------------------------------------------*/
+#dat_buttons_div button, #cy_buttons_div button, #import_dat_button_label {
+	width: 73px;
+	height: 30px;
+	color: #424242;
+	background-color: #f8f8f8;
+	border: 0;
+	outline: 0;
+	font: 13px Arial;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px 5px 5px 0px;
+}
+#dat_buttons_div button:hover, #cy_buttons_div button:hover, #import_dat_button_label:hover {
+	background-color: #f4f4f4;
+}
+#dat_buttons_div button:active, #cy_buttons_div button:active, #import_dat_button_label:active {
+	background-color: #ffffff;
+}
+#import_dat_button {
+	display: none;
+}
+
+#cy_util_row_right_bottom button {
+	width: 130px;
+	height: 35px;
+	color: #424242;
+	background-color: #f8f8f8;
+	border: 0;
+	outline: 0;
+	font: 13px Arial;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px 5px 5px 0px;
+}
+#cy_util_row_right_bottom  button:hover {
+	background-color: #f4f4f4;
+}
+#cy_util_row_right_bottom  button:active {
+	background-color: #ffffff;
+}
+
+#numa_node_num_input {
+	width: 33px;
+	height: 33px;
+	color: #424242;
+	background-color: #f8f8f8;
+	border: 0;
+	outline: 0;
+	font: 13px Arial;
+	margin: 0px 5px 5px 0px;
+	text-align: left;
+	text-indent: 5px;
+}
+
+/*--------------------------------------------------------*/
+
+#dat_textarea {
+	width: 390px;
+	height: 450px;
+	box-sizing: border-box;
+	margin-top: 5px;
+	font: 13px Arial;
+	color: #424242;
+	border-color: #f9f9f9;
+	outline: 0;
+	background-color: #f9f9f9;
+	resize: none;
+	tab-size : 4;
+}
+.dat_textarea_error {
+	border-color: red !important;
+}
+
+.tippy_class {
+	font-size: 12px;
+}
+
+#readme_div {
+	width: 1000px;
+	margin: 10px auto;
+	box-sizing: border-box;
+	padding: 0px 10px;
+	font: Arial;
+}
+
+

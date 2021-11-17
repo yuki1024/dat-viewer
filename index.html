@@ -2,11 +2,130 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="test page">
-	<title>test</title>
+	<meta name="description" content="DAT Viewer tsiena GUI tool">
+	<title>DAT Viewer</title>
+<!--
+	<link rel="shortcut icon" href="/img/favicon.ico">
+-->
+<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.16.3/cytoscape.min.js" integrity="sha512-jl4OegWBB7mcFYXcqdzyP3iFPqw4RHFLDUHBJ47DPxA7xvrGErkauvVJfmiKJGg47wW1kAQipZO7vSmcMlNJ0Q==" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script>
+	<script src="./cytoscape-edgehandles.js"></script>
+-->
+	<script src="./lib/cytoscape.min.js"></script>
+
+	<script src="./lib/lodash.min.js"></script>
+	<script src="./lib/cytoscape-edgehandles.js"></script>
+
+	<script src="./lib/popper.min.js"></script>
+	<script src="./lib/cytoscape-popper.js"></script>
+	<script src="./lib/tippy-bundle.umd.min.js"></script>
+
+	<link rel="stylesheet" href="./dat_viewer.css">
 </head>
 <body>
-	<h1>Hello!!</h1>
+<div id="all_body">
+
+	<div id="dt_all">
+
+	<div id="left_column">
+
+	<div id="title_div">DAT Viewer</div>
+	<div id="dat_buttons_div">
+		<label for="import_dat_button" id="import_dat_button_label">
+			Import<input type="file" id="import_dat_button" multiple />
+		</label>
+		<button id="export_dat_button">Export</button>
+		<button id="create_new_dat">New</button>
+		<button id="delete_dat">Del</button>
+		<button id="rename_dat">Rename</button>
+	</div>
+	<select id="dat_selectbox" size="6">
+		<!-- <option value="test1">test</option> -->
+	</select>
+
+	<div id="cy_util_row">
+		<select id="select_node_type" size="7">
+			<option value="core" selected>Core</option>
+			<option value="cache">Cache</option>
+			<option value="l1">(L1)</option>
+			<option value="l2">(L2)</option>
+			<option value="l3">(L3)</option>
+			<option value="mem">Mem</option>
+			<option value="router">Rounter</option>
+		</select>
+		<div id="cy_util_row_right">
+			<div id="cy_buttons_div">
+				<button id="add_node_button">Add</button>
+				<button id="duplicate_node_button">Duplicate</button>
+				<button id="remove_ele_button">Remove</button>
+				<button id="align_button">Align</button>
+				<button id="font_plus_button">Font++</button>
+				<button id="font_minus_button">Font--</button>
+				<button id="coloring_button">Coloring</button>
+				<button id="refresh_button">Refresh</button>
+			</div>
+			<div id="cy_util_row_right_bottom">
+				<button id="label_numa_node_button">Label NUMA node</button>
+				<input id="numa_node_num_input" type="number" value="0" min="0" max="1000">
+				<div id="cy_checkbox_div">
+					<input type="checkbox" id="one_click_mode" checked>
+					<label for="one_click_mode">One-click gen</label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<textarea id="dat_textarea" wrap="off" spellcheck="false"></textarea>
+
+	</div> <!--left_column-->
+
+	<div id="right_column">
+		<div id="cy"></div>
+	</div>	
+
+	</div> <!--dt_all-->
+
+	<script type="module" src="/dat_viewer.js"></script>
+
+	<!--read me section-->
+	<div id="readme_div">
+		<h2>DAT Viewer</h2>
+		<ul>
+			<li>DAT: Definition of Architecture Topology (JSON format)</li>
+			<li>Implemented in Javascript (+HTML+CSS)</li>
+			<li>Graph Tool: Cytoscape.js</li>
+		</ul>
+		<h2>Buttons</h2>
+		<ul>
+			<li><b>Import</b>: Import dat files (Multiple files are available)</li>
+			<li><b>Export</b>: Export a dat file</li>
+			<li><b>New</b>: Create a new dat file</li>
+			<li><b>Del</b>: Delete a currently selected dat file</li>
+			<li><b>Rename</b>: Rename a dat file name</li>
+			<li><b>Add</b>: Add a node whose object type is selected on the selectbox</li>
+			<li><b>Duplicate</b>: Deplicate selected nodes</li>
+			<li><b>Remove</b>: Remove selected nodes</li>
+			<li><b>Align</b>: Align selected nodes</li>
+			<li><b>Front++/Font--</b>: Increase/Decrease a font size</li>
+			<li><b>Coloring</b>: Switch coloring modes. 1.Default coloring 2.NUMA node coloring 3.Coloring nodes with "time" values</li>
+			<li><b>Refresh</b>: Re-calcutate "time" with new bandwidth / flops / ips values modified by user and then refresh graph window via json textfield and also refresh the textfield</li>
+			<li><b>Label NUMA node</b>: Label selected nodes a NUMA node group with a user set number</li>
+			<li><b>One-click gen</b>: When this is set, user can add a node with only one click</li>
+		</ul>
+		<h2>Tips</h2>
+		<ul>
+			<li>JSON textarea is refreshed as a json format every time an element in the graph changes (e.g. when a node is moved with a mouse)</li>
+			<li>It will work on not only a desktop env but also a mobile env. (unverified)</li>
+			<li>SHIFT key in a desktop env and three finger swipe in a mobile env are available for multiple object selection.</li>
+			<li>Flops attributes in core_class must be filled as a flops per core. (ipc also)</li>
+			<li>You can put "comment" properties (as keys in json) anywhere freely. They are just ignored by DAT Viewer and PMNet.</li>
+		</ul>
+	</div>
+
+</div><!--all_body-->
 </body>
 </html>
+
+
 
