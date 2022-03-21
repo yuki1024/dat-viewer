@@ -3,10 +3,9 @@
 - Implemented in Javascript (+HTML+CSS)
 - Graph Tool: Cytoscape.js
 
-## Usage (example)
+## Usage
 - Just access to https://yuki1024.github.io/dat-viewer/
-- Install "Web Server for Chrome" Extension to your Chrome Browser.
-- Set up a private instant server, then select the directory includes index.html.
+- For development: Install "Web Server for Chrome" Extension to your Chrome Browser. Set up a private instant server, then select the directory includes index.html.
 
 ----------------
 v9.1 2022/3
