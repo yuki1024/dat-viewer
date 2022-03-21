@@ -8,6 +8,11 @@
 - Set up a private instant server, then select the directory includes index.html.
 
 ----------------
+v9.1 2022/3
+
+- Now DAT Viewer became public and set Github Pages
+
+----------------
 v9.0 2021/5
 
 - Add NUMA node related things
