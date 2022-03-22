@@ -1,0 +1,1959 @@
+{
+	"core_class": {
+		"default": {
+			"name": "default",
+			"dp_flops": "64 GFLOPS",
+			"sp_flops": "128 GFLOPS",
+			"color": "#FF5662",
+			"shape": "round-rectangle",
+			"width": "25",
+			"height": "25"
+		}
+	},
+	"cache_class": {
+		"L1": {
+			"name": "L1",
+			"capacity": "64 KiB",
+			"associativity": 4,
+			"linesize": 64,
+			"read_bandwidth": "230 GB/s",
+			"write_bandwidth": "115 GB/s",
+			"color": "#FA9358",
+			"shape": "round-rectangle",
+			"width": "35",
+			"height": "25"
+		},
+		"L2": {
+			"name": "L2",
+			"capacity": "8 MiB",
+			"associativity": 16,
+			"linesize": 64,
+			"read_bandwidth": "115 GB/s",
+			"write_bandwidth": "57 GB/s",
+			"color": "#FFDB61",
+			"shape": "round-rectangle",
+			"width": "180",
+			"height": "40"
+		}
+	},
+	"mem_class": {
+		"default": {
+			"name": "default",
+			"capacity": "8 GiB",
+			"linesize": 64,
+			"read_bandwidth": "256 GB/s",
+			"write_bandwidth": "256 GB/s",
+			"color": "#60BCFF",
+			"shape": "round-rectangle",
+			"width": "60",
+			"height": "200"
+		}
+	},
+	"router_class": {
+		"default": {
+			"name": "default",
+			"read_bandwidth": "230 GB/s",
+			"write_bandwidth": "230 GB/s",
+			"color": "#8995FF",
+			"shape": "round-diamond",
+			"width": "20",
+			"height": "20"
+		}
+	},
+	"edge_class": {
+		"default": {
+			"name": "default",
+			"color": "",
+			"width": ""
+		}
+	},
+	"core_obj": {
+		"700d3eb7-8ce3-43ab-804f-61bf224e136f": {
+			"name": "Core-0",
+			"class": "default",
+			"position": {
+				"x": 81,
+				"y": 64
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"bb306907-6ffa-4946-a1fb-f65c0106798d": {
+			"name": "Core-1",
+			"class": "default",
+			"position": {
+				"x": 126,
+				"y": 62
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"e7a7c50b-e1fb-491a-8bfb-d629cc597b6b": {
+			"name": "Core-2",
+			"class": "default",
+			"position": {
+				"x": 172,
+				"y": 62
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"9ef21edd-1050-4c46-8a63-fe8329e300fd": {
+			"name": "Core-3",
+			"class": "default",
+			"position": {
+				"x": 217,
+				"y": 63
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"84b5e6f9-32d3-4711-9520-51167bc67ac0": {
+			"name": "Core-4",
+			"class": "default",
+			"position": {
+				"x": 259,
+				"y": 62
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"d7aa7dc0-a9f6-4bf9-b4ad-6b5e2639d2a8": {
+			"name": "Core-5",
+			"class": "default",
+			"position": {
+				"x": 303,
+				"y": 65
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"f6052e4b-e097-4c0f-92e4-d4aa81417946": {
+			"name": "Core-6",
+			"class": "default",
+			"position": {
+				"x": 82,
+				"y": 272
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"f6a18902-95e1-48ab-8a9a-0eaf426b3618": {
+			"name": "Core-7",
+			"class": "default",
+			"position": {
+				"x": 129,
+				"y": 274
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"cfce526e-6813-46ef-880b-a91b6bb06210": {
+			"name": "Core-8",
+			"class": "default",
+			"position": {
+				"x": 170,
+				"y": 275
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"fe8c82fc-227f-4ba7-945f-33a451fc1f40": {
+			"name": "Core-9",
+			"class": "default",
+			"position": {
+				"x": 216,
+				"y": 275
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"00e1b04b-7047-4aec-b955-431ce595f21a": {
+			"name": "Core-10",
+			"class": "default",
+			"position": {
+				"x": 262,
+				"y": 274
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"61f9febc-dcd6-418a-bccd-04077c72a8de": {
+			"name": "Core-11",
+			"class": "default",
+			"position": {
+				"x": 306,
+				"y": 272
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"99f8d147-2fb1-4905-acea-a1e87a40cdfc": {
+			"name": "Core-12",
+			"class": "default",
+			"position": {
+				"x": 408,
+				"y": 65
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"1bbf7de5-91b1-4362-bc7e-c64c2b4d94e8": {
+			"name": "Core-13",
+			"class": "default",
+			"position": {
+				"x": 453,
+				"y": 63
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"3b6974f6-f2d2-4eae-b879-11e17afba661": {
+			"name": "Core-14",
+			"class": "default",
+			"position": {
+				"x": 499,
+				"y": 63
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"f19ce493-08a0-405b-bc50-02080c9fafc5": {
+			"name": "Core-15",
+			"class": "default",
+			"position": {
+				"x": 544,
+				"y": 64
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"02a73bd5-3f14-4fb3-b138-b736f23c443a": {
+			"name": "Core-16",
+			"class": "default",
+			"position": {
+				"x": 586,
+				"y": 63
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"10a3babc-1a33-4f62-83bf-116d904518dc": {
+			"name": "Core-17",
+			"class": "default",
+			"position": {
+				"x": 630,
+				"y": 66
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"c2842f2c-02a7-4586-b333-261854a5594d": {
+			"name": "Core-18",
+			"class": "default",
+			"position": {
+				"x": 409,
+				"y": 273
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"fb330b30-2c8a-4116-b9dd-1f37f324a17b": {
+			"name": "Core-19",
+			"class": "default",
+			"position": {
+				"x": 456,
+				"y": 275
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"9854bc6b-39d4-433e-998f-f5766b397e16": {
+			"name": "Core-20",
+			"class": "default",
+			"position": {
+				"x": 497,
+				"y": 276
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"aa784127-a592-4737-9ac3-a003cefa3e45": {
+			"name": "Core-21",
+			"class": "default",
+			"position": {
+				"x": 543,
+				"y": 276
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"ea6782cf-c1c6-403b-b701-24f058ccbc40": {
+			"name": "Core-22",
+			"class": "default",
+			"position": {
+				"x": 589,
+				"y": 275
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"5051d621-5dfe-4bab-8fa2-674e8ec5cbf3": {
+			"name": "Core-23",
+			"class": "default",
+			"position": {
+				"x": 633,
+				"y": 273
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"876d76c7-755a-4533-8c47-f1a9fd8b2768": {
+			"name": "Core-24",
+			"class": "default",
+			"position": {
+				"x": 79,
+				"y": 371
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"12aa42ff-c600-4666-ab72-1210883ba408": {
+			"name": "Core-25",
+			"class": "default",
+			"position": {
+				"x": 124,
+				"y": 369
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"27a95332-242e-4043-ac00-1b05bdc68a9f": {
+			"name": "Core-26",
+			"class": "default",
+			"position": {
+				"x": 170,
+				"y": 369
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"1bd9467d-c747-47c9-8da5-fe8d7f358ee1": {
+			"name": "Core-27",
+			"class": "default",
+			"position": {
+				"x": 215,
+				"y": 370
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"0c1ab2f0-dbbb-45a0-a0e5-63284a3229e1": {
+			"name": "Core-28",
+			"class": "default",
+			"position": {
+				"x": 257,
+				"y": 369
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"37ce5f47-51b9-41c7-981d-558ab7612654": {
+			"name": "Core-29",
+			"class": "default",
+			"position": {
+				"x": 301,
+				"y": 372
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"3a253dc8-70e6-4523-8b71-f369369f8a0e": {
+			"name": "Core-30",
+			"class": "default",
+			"position": {
+				"x": 80,
+				"y": 579
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"e11b7f76-1d50-492e-b187-4b365da7966f": {
+			"name": "Core-31",
+			"class": "default",
+			"position": {
+				"x": 127,
+				"y": 581
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"d24b58ed-20cc-4aae-9a28-05da6f65d1a3": {
+			"name": "Core-32",
+			"class": "default",
+			"position": {
+				"x": 168,
+				"y": 582
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"0028a34a-9e13-4bb3-937b-363afda9fa23": {
+			"name": "Core-33",
+			"class": "default",
+			"position": {
+				"x": 214,
+				"y": 582
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"17ac9f9b-4fa4-44f3-b83b-65fc7ba03aaf": {
+			"name": "Core-34",
+			"class": "default",
+			"position": {
+				"x": 260,
+				"y": 581
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"5726ccda-5a9f-4794-979f-b023cf14aa3e": {
+			"name": "Core-35",
+			"class": "default",
+			"position": {
+				"x": 304,
+				"y": 579
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"fd34820f-9abc-4b2b-a10b-fc3fe20a7086": {
+			"name": "Core-36",
+			"class": "default",
+			"position": {
+				"x": 407,
+				"y": 372
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"76b895ad-6541-4102-bb9d-c9d3f8b39a51": {
+			"name": "Core-37",
+			"class": "default",
+			"position": {
+				"x": 452,
+				"y": 370
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"caf42c53-734d-426b-a997-30e5691bd568": {
+			"name": "Core-38",
+			"class": "default",
+			"position": {
+				"x": 498,
+				"y": 370
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"332d16bf-9b83-4b50-8a2e-1af8bb845a54": {
+			"name": "Core-39",
+			"class": "default",
+			"position": {
+				"x": 543,
+				"y": 371
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"89ffb157-1098-43d9-bdbe-5aaefa598463": {
+			"name": "Core-40",
+			"class": "default",
+			"position": {
+				"x": 585,
+				"y": 370
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"0cb429bb-a0e5-457c-b20f-94e5db8c5f25": {
+			"name": "Core-41",
+			"class": "default",
+			"position": {
+				"x": 629,
+				"y": 373
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"d3736ca7-86e5-43ff-873b-424da000bf5f": {
+			"name": "Core-42",
+			"class": "default",
+			"position": {
+				"x": 408,
+				"y": 580
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"7546a1ab-e304-44b1-a106-6fc99d0a41ca": {
+			"name": "Core-43",
+			"class": "default",
+			"position": {
+				"x": 455,
+				"y": 582
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"bdd5ca7c-80c8-4b31-87c4-66f009659b37": {
+			"name": "Core-44",
+			"class": "default",
+			"position": {
+				"x": 496,
+				"y": 583
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"999a2e67-774a-4a13-aca4-db21d8015699": {
+			"name": "Core-45",
+			"class": "default",
+			"position": {
+				"x": 542,
+				"y": 583
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"3b96a236-0cfa-4ef0-ab2b-95fdfcab4af8": {
+			"name": "Core-46",
+			"class": "default",
+			"position": {
+				"x": 588,
+				"y": 582
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		},
+		"9c86d4cb-8768-4161-8454-0dc4c0f4ab51": {
+			"name": "Core-47",
+			"class": "default",
+			"position": {
+				"x": 632,
+				"y": 580
+			},
+			"num_dp_flops": -1,
+			"num_sp_flops": -1,
+			"time": -1
+		}
+	},
+	"cache_obj": {
+		"65422cb2-fa69-48ee-b9cf-ca1780ce748c": {
+			"name": "L1-0",
+			"class": "L1",
+			"position": {
+				"x": 81,
+				"y": 106
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"1ed5d775-126f-43d0-ae7a-166ffd67c95f": {
+			"name": "L1-1",
+			"class": "L1",
+			"position": {
+				"x": 125,
+				"y": 106
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"4988b23d-005a-46b1-b5b2-0af73189c899": {
+			"name": "L1-2",
+			"class": "L1",
+			"position": {
+				"x": 170,
+				"y": 107
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"f94abdea-6a0b-4396-ac7f-bbab06eadb44": {
+			"name": "L1-3",
+			"class": "L1",
+			"position": {
+				"x": 215,
+				"y": 106
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"c253ef07-79c8-4a10-9378-e3d0987084b7": {
+			"name": "L1-4",
+			"class": "L1",
+			"position": {
+				"x": 258,
+				"y": 106
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"60330d2e-07d0-4f8e-9e7c-41aef8e118ab": {
+			"name": "L1-5",
+			"class": "L1",
+			"position": {
+				"x": 302,
+				"y": 107
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"9e46a84c-5f9f-419e-b21c-fe26119310b5": {
+			"name": "L1-6",
+			"class": "L1",
+			"position": {
+				"x": 79,
+				"y": 228
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"068a2055-1aff-407c-aaac-3d7946a248a7": {
+			"name": "L1-7",
+			"class": "L1",
+			"position": {
+				"x": 125,
+				"y": 228
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"752ad074-319d-4aeb-9921-5204a5e1b69f": {
+			"name": "L1-8",
+			"class": "L1",
+			"position": {
+				"x": 166,
+				"y": 227
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"e12d3893-e833-44d8-814d-1f35dc483cdf": {
+			"name": "L1-9",
+			"class": "L1",
+			"position": {
+				"x": 212,
+				"y": 228
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"ff48dfa7-5964-48ef-a86e-b1ddc368a523": {
+			"name": "L1-10",
+			"class": "L1",
+			"position": {
+				"x": 259,
+				"y": 229
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"847191e1-850f-493a-9bb1-e0dc5757f27b": {
+			"name": "L1-11",
+			"class": "L1",
+			"position": {
+				"x": 304,
+				"y": 230
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"29029c26-f0d2-4c0d-9652-570951aaa35d": {
+			"name": "L2-0",
+			"class": "L2",
+			"position": {
+				"x": 190,
+				"y": 162
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"415f85e6-9b97-4083-9e51-544d557bb38a": {
+			"name": "L1-12",
+			"class": "L1",
+			"position": {
+				"x": 408,
+				"y": 107
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"b6edb0ea-87a9-4486-af53-fa3c470b637a": {
+			"name": "L1-13",
+			"class": "L1",
+			"position": {
+				"x": 452,
+				"y": 107
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"d805b38c-08fd-4882-a99e-7ba6a1de4ec3": {
+			"name": "L1-14",
+			"class": "L1",
+			"position": {
+				"x": 497,
+				"y": 108
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"00e2123a-589b-4c21-bcc7-2809d1dd5dda": {
+			"name": "L1-15",
+			"class": "L1",
+			"position": {
+				"x": 542,
+				"y": 107
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"6cb6ce7e-32e8-471e-80d5-d40c10395735": {
+			"name": "L1-16",
+			"class": "L1",
+			"position": {
+				"x": 585,
+				"y": 107
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"5a2e14cb-4e8e-442c-a11f-efa916c7fe39": {
+			"name": "L1-17",
+			"class": "L1",
+			"position": {
+				"x": 629,
+				"y": 108
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"52b825cc-425b-4f52-a13a-f73b8cfe687f": {
+			"name": "L1-18",
+			"class": "L1",
+			"position": {
+				"x": 406,
+				"y": 229
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"ae4ae4c4-e8d9-425e-b8bd-ee6333896e69": {
+			"name": "L1-19",
+			"class": "L1",
+			"position": {
+				"x": 452,
+				"y": 229
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"25bdd17e-c05f-4439-a87c-af89ac14d0b1": {
+			"name": "L1-20",
+			"class": "L1",
+			"position": {
+				"x": 493,
+				"y": 228
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"98f241e9-470e-4756-a4eb-acc5ab5d5299": {
+			"name": "L1-21",
+			"class": "L1",
+			"position": {
+				"x": 539,
+				"y": 229
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"efe9d15a-f4be-4ecd-8f4b-17507764d4c2": {
+			"name": "L1-22",
+			"class": "L1",
+			"position": {
+				"x": 586,
+				"y": 230
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"04aa0e9a-fe83-429a-bb91-10ff07e0aeb2": {
+			"name": "L1-23",
+			"class": "L1",
+			"position": {
+				"x": 631,
+				"y": 231
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"55ad0c9e-4d7c-492f-b5c1-969ef181033c": {
+			"name": "L2-1",
+			"class": "L2",
+			"position": {
+				"x": 517,
+				"y": 163
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"8fb30271-af95-4829-bbe1-6cd5b7074c90": {
+			"name": "L1-24",
+			"class": "L1",
+			"position": {
+				"x": 79,
+				"y": 413
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"88c893a7-ba6e-46ae-903c-4f98fde53f4b": {
+			"name": "L1-25",
+			"class": "L1",
+			"position": {
+				"x": 123,
+				"y": 413
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"b0f93ed6-b3b6-42d3-b44d-ce9d0c3707c5": {
+			"name": "L1-26",
+			"class": "L1",
+			"position": {
+				"x": 168,
+				"y": 414
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"6752d54f-b8c6-440f-a9b2-bbd28c10af63": {
+			"name": "L1-27",
+			"class": "L1",
+			"position": {
+				"x": 213,
+				"y": 413
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"22318a0d-1002-4a77-987f-1a0c40f74ef3": {
+			"name": "L1-28",
+			"class": "L1",
+			"position": {
+				"x": 256,
+				"y": 413
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"94955b7a-d556-498e-b723-e8b83f3f4b7d": {
+			"name": "L1-29",
+			"class": "L1",
+			"position": {
+				"x": 300,
+				"y": 414
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"f8a01f08-6695-469f-bc65-edc8236baae2": {
+			"name": "L1-30",
+			"class": "L1",
+			"position": {
+				"x": 77,
+				"y": 535
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"1d0f793d-65da-43c7-bbed-f26e5a102612": {
+			"name": "L1-31",
+			"class": "L1",
+			"position": {
+				"x": 123,
+				"y": 535
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"87ee9b80-211d-48ba-8ab7-9bc40ac2423a": {
+			"name": "L1-32",
+			"class": "L1",
+			"position": {
+				"x": 164,
+				"y": 534
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"a2249831-fd7f-428f-b925-bcc7abea5c63": {
+			"name": "L1-33",
+			"class": "L1",
+			"position": {
+				"x": 210,
+				"y": 535
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"86553572-50f7-45ce-9de2-ef004ebcd051": {
+			"name": "L1-34",
+			"class": "L1",
+			"position": {
+				"x": 257,
+				"y": 536
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"cbacf0ac-7c2a-43bd-b8a1-3bff10f60ac3": {
+			"name": "L1-35",
+			"class": "L1",
+			"position": {
+				"x": 302,
+				"y": 537
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"6cf774ba-c614-4502-a252-a128ad3750ec": {
+			"name": "L2-2",
+			"class": "L2",
+			"position": {
+				"x": 188,
+				"y": 469
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"23e2d4c8-f6c7-45a9-8579-d124deab7ee8": {
+			"name": "L1-36",
+			"class": "L1",
+			"position": {
+				"x": 407,
+				"y": 414
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"ae2a4232-0be5-4623-aabc-557de218a514": {
+			"name": "L1-37",
+			"class": "L1",
+			"position": {
+				"x": 451,
+				"y": 414
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"078aada9-45ed-456f-9344-27a975475a7a": {
+			"name": "L1-38",
+			"class": "L1",
+			"position": {
+				"x": 496,
+				"y": 415
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"a53eced1-2839-469c-9aa3-10a450931a6a": {
+			"name": "L1-39",
+			"class": "L1",
+			"position": {
+				"x": 541,
+				"y": 414
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"354e57e6-16e3-4522-bd0b-cf87539710bd": {
+			"name": "L1-40",
+			"class": "L1",
+			"position": {
+				"x": 584,
+				"y": 414
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"04394aa2-0678-4170-967f-dd33010f65eb": {
+			"name": "L1-41",
+			"class": "L1",
+			"position": {
+				"x": 628,
+				"y": 415
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"47328006-df36-40c4-a5c6-be5ba17c40d5": {
+			"name": "L1-42",
+			"class": "L1",
+			"position": {
+				"x": 405,
+				"y": 536
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"0067546a-38eb-4002-a74b-3436ba3e2491": {
+			"name": "L1-43",
+			"class": "L1",
+			"position": {
+				"x": 451,
+				"y": 536
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"24182d55-2770-4b0e-b584-1ebe7c16a772": {
+			"name": "L1-44",
+			"class": "L1",
+			"position": {
+				"x": 492,
+				"y": 535
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"2d704eb8-35b5-42d7-b993-225e4fd489dd": {
+			"name": "L1-45",
+			"class": "L1",
+			"position": {
+				"x": 538,
+				"y": 536
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"97d24e11-996f-482a-b6c1-1f74826e7a76": {
+			"name": "L1-46",
+			"class": "L1",
+			"position": {
+				"x": 585,
+				"y": 537
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"a3957179-927d-4be0-b239-244f203ac4ca": {
+			"name": "L1-47",
+			"class": "L1",
+			"position": {
+				"x": 630,
+				"y": 538
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"14a8a4a8-3673-42ae-b551-9f0ed0624eb4": {
+			"name": "L2-3",
+			"class": "L2",
+			"position": {
+				"x": 516,
+				"y": 470
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		}
+	},
+	"mem_obj": {
+		"b746ab5d-fd35-4ffd-8362-6319e5424960": {
+			"name": "Mem-0",
+			"class": "default",
+			"position": {
+				"x": 14,
+				"y": 170
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"a365e435-b947-40a2-ae23-4185ee02ac8b": {
+			"name": "Mem-1",
+			"class": "default",
+			"position": {
+				"x": 704,
+				"y": 169
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"b8b99db5-98d3-4e8c-b356-c0b9677969d9": {
+			"name": "Mem-2",
+			"class": "default",
+			"position": {
+				"x": 9,
+				"y": 478
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		},
+		"fc721bd1-0d97-4d51-9a2b-6d69193b3d88": {
+			"name": "Mem-3",
+			"class": "default",
+			"position": {
+				"x": 708,
+				"y": 473
+			},
+			"num_read": -1,
+			"num_write": -1,
+			"bytes_read": -1,
+			"bytes_write": -1,
+			"time": -1
+		}
+	},
+	"router_obj": {},
+	"edge_obj": {
+		"1eae7e13-8128-4535-8e81-ba309ac5ac4f": {
+			"name": "Edge-0",
+			"class": "default",
+			"source": "700d3eb7-8ce3-43ab-804f-61bf224e136f",
+			"target": "65422cb2-fa69-48ee-b9cf-ca1780ce748c"
+		},
+		"6483c111-b89e-43ee-bcdf-cdd65b9ece3c": {
+			"name": "Edge-1",
+			"class": "default",
+			"source": "bb306907-6ffa-4946-a1fb-f65c0106798d",
+			"target": "1ed5d775-126f-43d0-ae7a-166ffd67c95f"
+		},
+		"4e5880c2-0d1c-4696-a3e2-74031bc13ff7": {
+			"name": "Edge-2",
+			"class": "default",
+			"source": "e7a7c50b-e1fb-491a-8bfb-d629cc597b6b",
+			"target": "4988b23d-005a-46b1-b5b2-0af73189c899"
+		},
+		"3505ba06-7f0f-4ba6-aaa0-6380dd3c76bb": {
+			"name": "Edge-3",
+			"class": "default",
+			"source": "9ef21edd-1050-4c46-8a63-fe8329e300fd",
+			"target": "f94abdea-6a0b-4396-ac7f-bbab06eadb44"
+		},
+		"0bc45052-5b02-43ae-afd1-7c3e1286f150": {
+			"name": "Edge-4",
+			"class": "default",
+			"source": "84b5e6f9-32d3-4711-9520-51167bc67ac0",
+			"target": "c253ef07-79c8-4a10-9378-e3d0987084b7"
+		},
+		"1ce1a42b-2efe-4ead-b379-8a2e8d0960e0": {
+			"name": "Edge-5",
+			"class": "default",
+			"source": "d7aa7dc0-a9f6-4bf9-b4ad-6b5e2639d2a8",
+			"target": "60330d2e-07d0-4f8e-9e7c-41aef8e118ab"
+		},
+		"35392d01-64a9-461e-b826-1c2ec3987ade": {
+			"name": "Edge-6",
+			"class": "default",
+			"source": "f6052e4b-e097-4c0f-92e4-d4aa81417946",
+			"target": "9e46a84c-5f9f-419e-b21c-fe26119310b5"
+		},
+		"7e9616e9-4c36-4b03-87fc-f35e33c2f258": {
+			"name": "Edge-7",
+			"class": "default",
+			"source": "f6a18902-95e1-48ab-8a9a-0eaf426b3618",
+			"target": "068a2055-1aff-407c-aaac-3d7946a248a7"
+		},
+		"9bbc9b1e-ff9b-4307-abae-4b03eceba7f7": {
+			"name": "Edge-8",
+			"class": "default",
+			"source": "cfce526e-6813-46ef-880b-a91b6bb06210",
+			"target": "752ad074-319d-4aeb-9921-5204a5e1b69f"
+		},
+		"2bc120c4-cd05-43d1-8e18-c2d73155b052": {
+			"name": "Edge-9",
+			"class": "default",
+			"source": "fe8c82fc-227f-4ba7-945f-33a451fc1f40",
+			"target": "e12d3893-e833-44d8-814d-1f35dc483cdf"
+		},
+		"7b1f2aab-80a7-4074-b62d-4ece117d4e4e": {
+			"name": "Edge-10",
+			"class": "default",
+			"source": "00e1b04b-7047-4aec-b955-431ce595f21a",
+			"target": "ff48dfa7-5964-48ef-a86e-b1ddc368a523"
+		},
+		"bc8a37cd-665d-425e-b8cf-7ad864dcfcf5": {
+			"name": "Edge-11",
+			"class": "default",
+			"source": "61f9febc-dcd6-418a-bccd-04077c72a8de",
+			"target": "847191e1-850f-493a-9bb1-e0dc5757f27b"
+		},
+		"81866063-cdf0-4e0e-b7c5-b8d99216224f": {
+			"name": "Edge-12",
+			"class": "default",
+			"source": "65422cb2-fa69-48ee-b9cf-ca1780ce748c",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"9536bc78-9a3a-4eeb-948c-e968dc4a75f7": {
+			"name": "Edge-13",
+			"class": "default",
+			"source": "1ed5d775-126f-43d0-ae7a-166ffd67c95f",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"4f78de1b-9536-4bd4-9854-606a71435c3b": {
+			"name": "Edge-14",
+			"class": "default",
+			"source": "4988b23d-005a-46b1-b5b2-0af73189c899",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"0ab57e2d-01ac-49bb-87f2-c5298db81336": {
+			"name": "Edge-15",
+			"class": "default",
+			"source": "f94abdea-6a0b-4396-ac7f-bbab06eadb44",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"38831184-318d-476e-8c59-92468077005e": {
+			"name": "Edge-16",
+			"class": "default",
+			"source": "c253ef07-79c8-4a10-9378-e3d0987084b7",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"5443dc9f-a722-4055-a050-ec393aac3a87": {
+			"name": "Edge-17",
+			"class": "default",
+			"source": "60330d2e-07d0-4f8e-9e7c-41aef8e118ab",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"185ccc09-ff7e-43a1-9795-38fb1803a1f5": {
+			"name": "Edge-18",
+			"class": "default",
+			"source": "9e46a84c-5f9f-419e-b21c-fe26119310b5",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"299b7186-7a9e-4910-9eb7-315fbe2ba286": {
+			"name": "Edge-19",
+			"class": "default",
+			"source": "068a2055-1aff-407c-aaac-3d7946a248a7",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"e152bfc8-1023-42eb-a329-f572d9f71037": {
+			"name": "Edge-20",
+			"class": "default",
+			"source": "752ad074-319d-4aeb-9921-5204a5e1b69f",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"3a0a71c1-fc9c-444c-a474-407653795de7": {
+			"name": "Edge-21",
+			"class": "default",
+			"source": "e12d3893-e833-44d8-814d-1f35dc483cdf",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"cdd154c2-2389-46b2-b2c8-ce7df3fc5883": {
+			"name": "Edge-22",
+			"class": "default",
+			"source": "ff48dfa7-5964-48ef-a86e-b1ddc368a523",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"889ead29-c8d2-4df0-b45e-f676baa2fc76": {
+			"name": "Edge-23",
+			"class": "default",
+			"source": "847191e1-850f-493a-9bb1-e0dc5757f27b",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"f90e2de0-5275-43bf-a287-58b4ed87dfd2": {
+			"name": "Edge-24",
+			"class": "default",
+			"source": "99f8d147-2fb1-4905-acea-a1e87a40cdfc",
+			"target": "415f85e6-9b97-4083-9e51-544d557bb38a"
+		},
+		"76530411-f175-45c3-b770-ebca5ea6138b": {
+			"name": "Edge-25",
+			"class": "default",
+			"source": "1bbf7de5-91b1-4362-bc7e-c64c2b4d94e8",
+			"target": "b6edb0ea-87a9-4486-af53-fa3c470b637a"
+		},
+		"030887df-c26b-43cc-bdb9-06b02fdff2d1": {
+			"name": "Edge-26",
+			"class": "default",
+			"source": "3b6974f6-f2d2-4eae-b879-11e17afba661",
+			"target": "d805b38c-08fd-4882-a99e-7ba6a1de4ec3"
+		},
+		"0bc042b6-8167-45a8-888d-598062a129ff": {
+			"name": "Edge-27",
+			"class": "default",
+			"source": "f19ce493-08a0-405b-bc50-02080c9fafc5",
+			"target": "00e2123a-589b-4c21-bcc7-2809d1dd5dda"
+		},
+		"a1c0dd75-f7b6-4039-8120-cf39a9fac697": {
+			"name": "Edge-28",
+			"class": "default",
+			"source": "02a73bd5-3f14-4fb3-b138-b736f23c443a",
+			"target": "6cb6ce7e-32e8-471e-80d5-d40c10395735"
+		},
+		"d1ff8740-4c67-4962-9ad8-acbc06e99e41": {
+			"name": "Edge-29",
+			"class": "default",
+			"source": "10a3babc-1a33-4f62-83bf-116d904518dc",
+			"target": "5a2e14cb-4e8e-442c-a11f-efa916c7fe39"
+		},
+		"f6d47ab2-042e-4530-91db-f64740fa0df4": {
+			"name": "Edge-30",
+			"class": "default",
+			"source": "c2842f2c-02a7-4586-b333-261854a5594d",
+			"target": "52b825cc-425b-4f52-a13a-f73b8cfe687f"
+		},
+		"f43147d7-36f4-4496-8a64-05031d3003ee": {
+			"name": "Edge-31",
+			"class": "default",
+			"source": "fb330b30-2c8a-4116-b9dd-1f37f324a17b",
+			"target": "ae4ae4c4-e8d9-425e-b8bd-ee6333896e69"
+		},
+		"ce1e391f-97d8-45dc-ac0e-2bcd1767cce3": {
+			"name": "Edge-32",
+			"class": "default",
+			"source": "9854bc6b-39d4-433e-998f-f5766b397e16",
+			"target": "25bdd17e-c05f-4439-a87c-af89ac14d0b1"
+		},
+		"845a9cf0-8d34-4231-be81-1706de460cdb": {
+			"name": "Edge-33",
+			"class": "default",
+			"source": "aa784127-a592-4737-9ac3-a003cefa3e45",
+			"target": "98f241e9-470e-4756-a4eb-acc5ab5d5299"
+		},
+		"933c7ae8-b2f7-49b8-a1a1-e36e1e6f822b": {
+			"name": "Edge-34",
+			"class": "default",
+			"source": "ea6782cf-c1c6-403b-b701-24f058ccbc40",
+			"target": "efe9d15a-f4be-4ecd-8f4b-17507764d4c2"
+		},
+		"e1ff67b3-b721-49c5-a424-2b9c59515b6a": {
+			"name": "Edge-35",
+			"class": "default",
+			"source": "5051d621-5dfe-4bab-8fa2-674e8ec5cbf3",
+			"target": "04aa0e9a-fe83-429a-bb91-10ff07e0aeb2"
+		},
+		"9b99ce80-89c9-4877-b9b5-e4b2803c2753": {
+			"name": "Edge-36",
+			"class": "default",
+			"source": "415f85e6-9b97-4083-9e51-544d557bb38a",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"843bc69f-6846-40f9-91e3-9d865d15345a": {
+			"name": "Edge-37",
+			"class": "default",
+			"source": "b6edb0ea-87a9-4486-af53-fa3c470b637a",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"bb28585a-8b74-4474-a6ea-046d35de3084": {
+			"name": "Edge-38",
+			"class": "default",
+			"source": "d805b38c-08fd-4882-a99e-7ba6a1de4ec3",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"9e8713e4-f633-4ad9-a977-248348377e38": {
+			"name": "Edge-39",
+			"class": "default",
+			"source": "00e2123a-589b-4c21-bcc7-2809d1dd5dda",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"9fa1f57c-a2a0-4404-9a3e-518c95571998": {
+			"name": "Edge-40",
+			"class": "default",
+			"source": "6cb6ce7e-32e8-471e-80d5-d40c10395735",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"3a702f13-3352-4f4b-be97-cc41e256f624": {
+			"name": "Edge-41",
+			"class": "default",
+			"source": "5a2e14cb-4e8e-442c-a11f-efa916c7fe39",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"f0a26f74-52fb-4e19-a492-166dc0465573": {
+			"name": "Edge-42",
+			"class": "default",
+			"source": "52b825cc-425b-4f52-a13a-f73b8cfe687f",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"38d457b1-88b5-4df7-b610-0dd2ad79a65f": {
+			"name": "Edge-43",
+			"class": "default",
+			"source": "ae4ae4c4-e8d9-425e-b8bd-ee6333896e69",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"121493a4-a60a-4f09-8a68-f28f55b23808": {
+			"name": "Edge-44",
+			"class": "default",
+			"source": "25bdd17e-c05f-4439-a87c-af89ac14d0b1",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"a6d55efe-4ffc-4740-877f-28bd20358c29": {
+			"name": "Edge-45",
+			"class": "default",
+			"source": "98f241e9-470e-4756-a4eb-acc5ab5d5299",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"5f54df0f-f804-484e-9958-576c9fd1b1ca": {
+			"name": "Edge-46",
+			"class": "default",
+			"source": "efe9d15a-f4be-4ecd-8f4b-17507764d4c2",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"9e8c23fb-1ef2-43a6-907a-618f34c54e83": {
+			"name": "Edge-47",
+			"class": "default",
+			"source": "04aa0e9a-fe83-429a-bb91-10ff07e0aeb2",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"00dd2428-0101-4887-9aa3-d2d5eb7dbe1c": {
+			"name": "Edge-48",
+			"class": "default",
+			"source": "876d76c7-755a-4533-8c47-f1a9fd8b2768",
+			"target": "8fb30271-af95-4829-bbe1-6cd5b7074c90"
+		},
+		"885beb8b-c820-445a-8f34-2a098f880cc1": {
+			"name": "Edge-49",
+			"class": "default",
+			"source": "12aa42ff-c600-4666-ab72-1210883ba408",
+			"target": "88c893a7-ba6e-46ae-903c-4f98fde53f4b"
+		},
+		"568fcf59-9444-474b-83db-cb5f2f180f85": {
+			"name": "Edge-50",
+			"class": "default",
+			"source": "27a95332-242e-4043-ac00-1b05bdc68a9f",
+			"target": "b0f93ed6-b3b6-42d3-b44d-ce9d0c3707c5"
+		},
+		"dc24fe2a-bc7b-4d48-8b74-1b10b70dc3e3": {
+			"name": "Edge-51",
+			"class": "default",
+			"source": "1bd9467d-c747-47c9-8da5-fe8d7f358ee1",
+			"target": "6752d54f-b8c6-440f-a9b2-bbd28c10af63"
+		},
+		"3e07e54a-2c51-4127-b391-907ea7157776": {
+			"name": "Edge-52",
+			"class": "default",
+			"source": "0c1ab2f0-dbbb-45a0-a0e5-63284a3229e1",
+			"target": "22318a0d-1002-4a77-987f-1a0c40f74ef3"
+		},
+		"e0e2f7be-995b-4554-bb24-151433df6403": {
+			"name": "Edge-53",
+			"class": "default",
+			"source": "37ce5f47-51b9-41c7-981d-558ab7612654",
+			"target": "94955b7a-d556-498e-b723-e8b83f3f4b7d"
+		},
+		"e2253178-07fb-466c-8b80-498ccc0aa656": {
+			"name": "Edge-54",
+			"class": "default",
+			"source": "3a253dc8-70e6-4523-8b71-f369369f8a0e",
+			"target": "f8a01f08-6695-469f-bc65-edc8236baae2"
+		},
+		"b4f3ed2f-2d00-42cb-9ece-875fe027460f": {
+			"name": "Edge-55",
+			"class": "default",
+			"source": "e11b7f76-1d50-492e-b187-4b365da7966f",
+			"target": "1d0f793d-65da-43c7-bbed-f26e5a102612"
+		},
+		"7c3f8f5c-ddb9-450e-8b29-9e177a9e2217": {
+			"name": "Edge-56",
+			"class": "default",
+			"source": "d24b58ed-20cc-4aae-9a28-05da6f65d1a3",
+			"target": "87ee9b80-211d-48ba-8ab7-9bc40ac2423a"
+		},
+		"e285b392-5d48-465a-9d3e-ee2d4b1e4ae8": {
+			"name": "Edge-57",
+			"class": "default",
+			"source": "0028a34a-9e13-4bb3-937b-363afda9fa23",
+			"target": "a2249831-fd7f-428f-b925-bcc7abea5c63"
+		},
+		"84085fe5-550f-4847-976b-07ead3af7b08": {
+			"name": "Edge-58",
+			"class": "default",
+			"source": "17ac9f9b-4fa4-44f3-b83b-65fc7ba03aaf",
+			"target": "86553572-50f7-45ce-9de2-ef004ebcd051"
+		},
+		"deade582-3eec-40ce-af73-b66db8d2309f": {
+			"name": "Edge-59",
+			"class": "default",
+			"source": "5726ccda-5a9f-4794-979f-b023cf14aa3e",
+			"target": "cbacf0ac-7c2a-43bd-b8a1-3bff10f60ac3"
+		},
+		"16e39914-f0ca-462e-8390-d1b6fee5490b": {
+			"name": "Edge-60",
+			"class": "default",
+			"source": "8fb30271-af95-4829-bbe1-6cd5b7074c90",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"63f00dcb-1c1e-4c59-9869-b8b850bc1b8a": {
+			"name": "Edge-61",
+			"class": "default",
+			"source": "88c893a7-ba6e-46ae-903c-4f98fde53f4b",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"0a45761c-f35b-429d-8658-94007e32ff97": {
+			"name": "Edge-62",
+			"class": "default",
+			"source": "b0f93ed6-b3b6-42d3-b44d-ce9d0c3707c5",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"05a3b7e7-63af-431b-b5e7-d5ae566aab21": {
+			"name": "Edge-63",
+			"class": "default",
+			"source": "6752d54f-b8c6-440f-a9b2-bbd28c10af63",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"22ea7f6d-69fd-4b3d-ac33-640cada21708": {
+			"name": "Edge-64",
+			"class": "default",
+			"source": "22318a0d-1002-4a77-987f-1a0c40f74ef3",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"bb38cd60-672e-42e5-a78f-a4325ea31f39": {
+			"name": "Edge-65",
+			"class": "default",
+			"source": "94955b7a-d556-498e-b723-e8b83f3f4b7d",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"e5cc6619-2c04-41ae-9359-ffd73f3dc1fc": {
+			"name": "Edge-66",
+			"class": "default",
+			"source": "f8a01f08-6695-469f-bc65-edc8236baae2",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"a8b537bd-2b35-4909-917b-19d3e177de6b": {
+			"name": "Edge-67",
+			"class": "default",
+			"source": "1d0f793d-65da-43c7-bbed-f26e5a102612",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"34f3b5ac-64d7-4dc9-9afc-0f906de4c3b4": {
+			"name": "Edge-68",
+			"class": "default",
+			"source": "87ee9b80-211d-48ba-8ab7-9bc40ac2423a",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"e55e8537-ea3c-4bdb-afe6-ad1879540c72": {
+			"name": "Edge-69",
+			"class": "default",
+			"source": "a2249831-fd7f-428f-b925-bcc7abea5c63",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"aa7e54bb-51ba-48ad-90a5-9abd09cd46c3": {
+			"name": "Edge-70",
+			"class": "default",
+			"source": "86553572-50f7-45ce-9de2-ef004ebcd051",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"1a5b17ed-bec5-4d62-9b40-34f5e38e3ef8": {
+			"name": "Edge-71",
+			"class": "default",
+			"source": "cbacf0ac-7c2a-43bd-b8a1-3bff10f60ac3",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"580c89c3-82c6-42f1-9733-4283573ba471": {
+			"name": "Edge-72",
+			"class": "default",
+			"source": "fd34820f-9abc-4b2b-a10b-fc3fe20a7086",
+			"target": "23e2d4c8-f6c7-45a9-8579-d124deab7ee8"
+		},
+		"0699f65b-2938-4dc4-926b-49311afc8d4d": {
+			"name": "Edge-73",
+			"class": "default",
+			"source": "76b895ad-6541-4102-bb9d-c9d3f8b39a51",
+			"target": "ae2a4232-0be5-4623-aabc-557de218a514"
+		},
+		"93e75590-2971-4e18-bfc3-1090b4766fa7": {
+			"name": "Edge-74",
+			"class": "default",
+			"source": "caf42c53-734d-426b-a997-30e5691bd568",
+			"target": "078aada9-45ed-456f-9344-27a975475a7a"
+		},
+		"ff0c84f8-54fc-4cc1-b5a4-af45994eb1a4": {
+			"name": "Edge-75",
+			"class": "default",
+			"source": "332d16bf-9b83-4b50-8a2e-1af8bb845a54",
+			"target": "a53eced1-2839-469c-9aa3-10a450931a6a"
+		},
+		"204f119e-d50b-46cd-ab37-a74ea84d2a91": {
+			"name": "Edge-76",
+			"class": "default",
+			"source": "89ffb157-1098-43d9-bdbe-5aaefa598463",
+			"target": "354e57e6-16e3-4522-bd0b-cf87539710bd"
+		},
+		"1034fec8-689a-4283-8f80-04a51dddcb1b": {
+			"name": "Edge-77",
+			"class": "default",
+			"source": "0cb429bb-a0e5-457c-b20f-94e5db8c5f25",
+			"target": "04394aa2-0678-4170-967f-dd33010f65eb"
+		},
+		"e84b3ea0-e37f-4055-8c0f-fc2f3f41642f": {
+			"name": "Edge-78",
+			"class": "default",
+			"source": "d3736ca7-86e5-43ff-873b-424da000bf5f",
+			"target": "47328006-df36-40c4-a5c6-be5ba17c40d5"
+		},
+		"d19cf2d9-42bf-40a5-a08b-054d3c1d877f": {
+			"name": "Edge-79",
+			"class": "default",
+			"source": "7546a1ab-e304-44b1-a106-6fc99d0a41ca",
+			"target": "0067546a-38eb-4002-a74b-3436ba3e2491"
+		},
+		"f00d74e8-b1ee-41bc-8764-fc3340f126f2": {
+			"name": "Edge-80",
+			"class": "default",
+			"source": "bdd5ca7c-80c8-4b31-87c4-66f009659b37",
+			"target": "24182d55-2770-4b0e-b584-1ebe7c16a772"
+		},
+		"60d5af44-5a13-4019-a83b-c363f33e1465": {
+			"name": "Edge-81",
+			"class": "default",
+			"source": "999a2e67-774a-4a13-aca4-db21d8015699",
+			"target": "2d704eb8-35b5-42d7-b993-225e4fd489dd"
+		},
+		"77241b8d-332c-4855-8d5f-987bf0946bb3": {
+			"name": "Edge-82",
+			"class": "default",
+			"source": "3b96a236-0cfa-4ef0-ab2b-95fdfcab4af8",
+			"target": "97d24e11-996f-482a-b6c1-1f74826e7a76"
+		},
+		"a0d5b0bf-2a4c-4235-b9f9-8ac78dd69a12": {
+			"name": "Edge-83",
+			"class": "default",
+			"source": "9c86d4cb-8768-4161-8454-0dc4c0f4ab51",
+			"target": "a3957179-927d-4be0-b239-244f203ac4ca"
+		},
+		"32fd1858-1256-49bd-a09d-6a039a87ec21": {
+			"name": "Edge-84",
+			"class": "default",
+			"source": "23e2d4c8-f6c7-45a9-8579-d124deab7ee8",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"dc16a4e5-cd7d-4f25-bdef-771a6de46fe5": {
+			"name": "Edge-85",
+			"class": "default",
+			"source": "ae2a4232-0be5-4623-aabc-557de218a514",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"87d3b642-e0ee-4259-bbb8-6945985591a6": {
+			"name": "Edge-86",
+			"class": "default",
+			"source": "078aada9-45ed-456f-9344-27a975475a7a",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"98b5d339-08de-46ec-9962-eaf237f61599": {
+			"name": "Edge-87",
+			"class": "default",
+			"source": "a53eced1-2839-469c-9aa3-10a450931a6a",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"0acd4362-cf4f-4190-8bd3-17f7c2756b5a": {
+			"name": "Edge-88",
+			"class": "default",
+			"source": "354e57e6-16e3-4522-bd0b-cf87539710bd",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"d681a120-95a0-41a5-9310-dd70989633a6": {
+			"name": "Edge-89",
+			"class": "default",
+			"source": "04394aa2-0678-4170-967f-dd33010f65eb",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"9e42a25b-cd87-49ef-89c8-fb5a576c0680": {
+			"name": "Edge-90",
+			"class": "default",
+			"source": "47328006-df36-40c4-a5c6-be5ba17c40d5",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"58222bc2-8450-47c1-ad30-6934d78e0973": {
+			"name": "Edge-91",
+			"class": "default",
+			"source": "0067546a-38eb-4002-a74b-3436ba3e2491",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"5b5bdd05-0d73-49c3-85d5-7b41428be798": {
+			"name": "Edge-92",
+			"class": "default",
+			"source": "24182d55-2770-4b0e-b584-1ebe7c16a772",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"dc7e73e2-5639-4c1a-87f8-d3c6f5e4f1a6": {
+			"name": "Edge-93",
+			"class": "default",
+			"source": "2d704eb8-35b5-42d7-b993-225e4fd489dd",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"ce45c47f-a0d1-48cb-a298-265b60a19c71": {
+			"name": "Edge-94",
+			"class": "default",
+			"source": "97d24e11-996f-482a-b6c1-1f74826e7a76",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"63f270ff-1991-47a8-83fe-5ba8d69e814d": {
+			"name": "Edge-95",
+			"class": "default",
+			"source": "a3957179-927d-4be0-b239-244f203ac4ca",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"e2543b88-4a1c-4cfc-8b6f-519cf8ff276e": {
+			"name": "Edge-96",
+			"class": "default",
+			"source": "b746ab5d-fd35-4ffd-8362-6319e5424960",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		},
+		"c5ede598-2632-4b87-b5ee-2736b861a7fb": {
+			"name": "Edge-97",
+			"class": "default",
+			"source": "a365e435-b947-40a2-ae23-4185ee02ac8b",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"3acdd242-bb54-4ad1-adc7-75fa878b03bb": {
+			"name": "Edge-98",
+			"class": "default",
+			"source": "b8b99db5-98d3-4e8c-b356-c0b9677969d9",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"83653057-0e28-45b0-b4b2-dfba2d3acab7": {
+			"name": "Edge-99",
+			"class": "default",
+			"source": "fc721bd1-0d97-4d51-9a2b-6d69193b3d88",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"eb3606f5-68de-4bd2-a611-f7cd94854784": {
+			"name": "Edge-100",
+			"class": "default",
+			"source": "29029c26-f0d2-4c0d-9652-570951aaa35d",
+			"target": "55ad0c9e-4d7c-492f-b5c1-969ef181033c"
+		},
+		"eb77ec72-4b05-4063-bd1b-470ed3337e33": {
+			"name": "Edge-101",
+			"class": "default",
+			"source": "55ad0c9e-4d7c-492f-b5c1-969ef181033c",
+			"target": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4"
+		},
+		"6e62ab55-0b7a-4449-989d-f0e99b0e9752": {
+			"name": "Edge-102",
+			"class": "default",
+			"source": "14a8a4a8-3673-42ae-b551-9f0ed0624eb4",
+			"target": "6cf774ba-c614-4502-a252-a128ad3750ec"
+		},
+		"ff2f786d-d1c0-40a6-a96e-5bdf71f43e46": {
+			"name": "Edge-103",
+			"class": "default",
+			"source": "6cf774ba-c614-4502-a252-a128ad3750ec",
+			"target": "29029c26-f0d2-4c0d-9652-570951aaa35d"
+		}
+	}
+}

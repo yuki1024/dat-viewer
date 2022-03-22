@@ -1,0 +1,357 @@
+{
+	"core_class": {
+		"default": {
+			"name": "default",
+			"dp_flops": "33.6 GFLOPS",
+			"sp_flops": "67.2 GFLOPS",
+			"ips": "33.6 GIPS",
+			"color": "#FF5662",
+			"shape": "rectangle",
+			"width": "30",
+			"height": "30",
+			"comment": "Intel Core i7-7700K CPU 4.20GHz"
+		}
+	},
+	"cache_class": {
+		"L1": {
+			"name": "L1",
+			"capacity": "32 KiB",
+			"associativity": 8,
+			"linesize": 64,
+			"read_bandwidth": "134.4 GB/s",
+			"write_bandwidth": "134.4 GB/s",
+			"color": "#FA9358",
+			"shape": "rectangle",
+			"width": "40",
+			"height": "40"
+		},
+		"L2": {
+			"name": "L2",
+			"capacity": "256 KiB",
+			"associativity": 4,
+			"linesize": 64,
+			"read_bandwidth": "268.8 GB/s",
+			"write_bandwidth": "268.8 GB/s",
+			"color": "#FFDB61",
+			"shape": "rectangle",
+			"width": "50",
+			"height": "50"
+		},
+		"L3": {
+			"name": "L3",
+			"capacity": "8 MiB",
+			"associativity": 16,
+			"linesize": 64,
+			"read_bandwidth": "134.4 GB/s",
+			"write_bandwidth": "134.4 GB/s",
+			"color": "#66F081",
+			"shape": "rectangle",
+			"width": "60",
+			"height": "60"
+		}
+	},
+	"mem_class": {
+		"default": {
+			"name": "default",
+			"capacity": "64 GiB",
+			"linesize": 64,
+			"read_bandwidth": "38.4 GB/s",
+			"write_bandwidth": "38.4 GB/s",
+			"color": "#60BCFF",
+			"shape": "rectangle",
+			"width": "70",
+			"height": "70"
+		}
+	},
+	"router_class": {
+		"default": {
+			"name": "default",
+			"read_bandwidth": "100.0 GB/s",
+			"write_bandwidth": "100.0 GB/s",
+			"color": "#8995FF",
+			"shape": "diamond",
+			"width": "20",
+			"height": "20"
+		}
+	},
+	"edge_class": {
+		"default": {
+			"name": "default",
+			"color": "",
+			"width": ""
+		}
+	},
+	"core_obj": {
+		"ea905d45-52e6-4633-af2c-757d3c52cd85": {
+			"name": "Core-0",
+			"class": "default",
+			"position": {
+				"x": 227.5,
+				"y": 144
+			},
+			"num_dp_flops": 0,
+			"num_sp_flops": 0,
+			"num_inst": 0,
+			"time_flops": 0,
+			"time_inst": 0,
+			"time": 0
+		},
+		"dcb3e195-a2ee-4f44-9753-9a1d9b815ce7": {
+			"name": "Core-1",
+			"class": "default",
+			"position": {
+				"x": 335.5,
+				"y": 141
+			},
+			"num_dp_flops": 0,
+			"num_sp_flops": 0,
+			"num_inst": 0,
+			"time_flops": 0,
+			"time_inst": 0,
+			"time": 0
+		},
+		"372b317a-bc07-4563-8ad1-0fc93dee76b1": {
+			"name": "Core-2",
+			"class": "default",
+			"position": {
+				"x": 430.5,
+				"y": 143
+			},
+			"num_dp_flops": 0,
+			"num_sp_flops": 0,
+			"num_inst": 0,
+			"time_flops": 0,
+			"time_inst": 0,
+			"time": 0
+		},
+		"9ddeec48-58f4-44c1-aec2-bfa1f3ea2c64": {
+			"name": "Core-3",
+			"class": "default",
+			"position": {
+				"x": 521.5,
+				"y": 145
+			},
+			"num_dp_flops": 0,
+			"num_sp_flops": 0,
+			"num_inst": 0,
+			"time_flops": 0,
+			"time_inst": 0,
+			"time": 0
+		}
+	},
+	"cache_obj": {
+		"0ce4fe10-88b4-4702-988e-9e86df793513": {
+			"name": "L1-0",
+			"class": "L1",
+			"position": {
+				"x": 226.5,
+				"y": 244
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"c1f495f3-4e3f-4145-b8db-d8d83a4f1195": {
+			"name": "L1-1",
+			"class": "L1",
+			"position": {
+				"x": 336.5,
+				"y": 244
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"1f9e9bee-3baa-4bd2-927d-68158bbd9708": {
+			"name": "L1-2",
+			"class": "L1",
+			"position": {
+				"x": 429.5,
+				"y": 244
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"1c492fa6-65c5-4792-8ed4-2826e2282f04": {
+			"name": "L1-3",
+			"class": "L1",
+			"position": {
+				"x": 524.5,
+				"y": 252
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"6d95882a-96f6-4d51-b8cb-7d164a6f6227": {
+			"name": "L2-0",
+			"class": "L2",
+			"position": {
+				"x": 225.5,
+				"y": 358
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"836212db-8dbc-4c89-b758-a8ac6dd1ed73": {
+			"name": "L2-1",
+			"class": "L2",
+			"position": {
+				"x": 333.5,
+				"y": 358
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"0dfd3443-5a00-4535-8265-7bb0c051a054": {
+			"name": "L2-2",
+			"class": "L2",
+			"position": {
+				"x": 432.5,
+				"y": 360
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"14dc3eca-7591-440a-8910-a626cdb3596e": {
+			"name": "L2-3",
+			"class": "L2",
+			"position": {
+				"x": 522.5,
+				"y": 358
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		},
+		"ea855c61-3684-4eb2-931b-5fc8eb40cb08": {
+			"name": "L3-0",
+			"class": "L3",
+			"position": {
+				"x": 379.5,
+				"y": 490
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		}
+	},
+	"mem_obj": {
+		"8d0c7fb6-1506-4a07-b6ca-020b23d03b0d": {
+			"name": "Mem-0",
+			"class": "default",
+			"position": {
+				"x": 377.5,
+				"y": 623
+			},
+			"num_read": 0,
+			"num_write": 0,
+			"bytes_read": 0,
+			"bytes_write": 0,
+			"time": 0
+		}
+	},
+	"router_obj": {},
+	"edge_obj": {
+		"cfc130be-24ed-4e0f-aa59-dd0afe0dfdf0": {
+			"name": "Edge-0",
+			"class": "default",
+			"source": "ea905d45-52e6-4633-af2c-757d3c52cd85",
+			"target": "0ce4fe10-88b4-4702-988e-9e86df793513"
+		},
+		"6564542a-428c-475c-91d0-1d5c774a48b4": {
+			"name": "Edge-1",
+			"class": "default",
+			"source": "0ce4fe10-88b4-4702-988e-9e86df793513",
+			"target": "6d95882a-96f6-4d51-b8cb-7d164a6f6227"
+		},
+		"1ca7787b-3e49-42b0-8f0f-f9d2ddedecdc": {
+			"name": "Edge-2",
+			"class": "default",
+			"source": "dcb3e195-a2ee-4f44-9753-9a1d9b815ce7",
+			"target": "c1f495f3-4e3f-4145-b8db-d8d83a4f1195"
+		},
+		"f15109af-52ff-4df3-a28a-260e8cae7705": {
+			"name": "Edge-3",
+			"class": "default",
+			"source": "c1f495f3-4e3f-4145-b8db-d8d83a4f1195",
+			"target": "836212db-8dbc-4c89-b758-a8ac6dd1ed73"
+		},
+		"08eedecb-1dcc-4ec5-9f86-b49c7077a21a": {
+			"name": "Edge-4",
+			"class": "default",
+			"source": "372b317a-bc07-4563-8ad1-0fc93dee76b1",
+			"target": "1f9e9bee-3baa-4bd2-927d-68158bbd9708"
+		},
+		"c05e5f33-28ab-4ded-8b22-f0b6f305304d": {
+			"name": "Edge-5",
+			"class": "default",
+			"source": "1f9e9bee-3baa-4bd2-927d-68158bbd9708",
+			"target": "0dfd3443-5a00-4535-8265-7bb0c051a054"
+		},
+		"1526a800-c4ef-44f4-98be-05e10fbdd971": {
+			"name": "Edge-6",
+			"class": "default",
+			"source": "9ddeec48-58f4-44c1-aec2-bfa1f3ea2c64",
+			"target": "1c492fa6-65c5-4792-8ed4-2826e2282f04"
+		},
+		"71211feb-1ca1-441c-a133-350e13486f0e": {
+			"name": "Edge-7",
+			"class": "default",
+			"source": "1c492fa6-65c5-4792-8ed4-2826e2282f04",
+			"target": "14dc3eca-7591-440a-8910-a626cdb3596e"
+		},
+		"1057566d-b43f-4866-b611-38fde97b1909": {
+			"name": "Edge-8",
+			"class": "default",
+			"source": "6d95882a-96f6-4d51-b8cb-7d164a6f6227",
+			"target": "ea855c61-3684-4eb2-931b-5fc8eb40cb08"
+		},
+		"af460066-3d65-4b0b-832a-a87969bcc403": {
+			"name": "Edge-9",
+			"class": "default",
+			"source": "836212db-8dbc-4c89-b758-a8ac6dd1ed73",
+			"target": "ea855c61-3684-4eb2-931b-5fc8eb40cb08"
+		},
+		"b5aa0260-6d81-4a9e-b9a6-5aea69751f32": {
+			"name": "Edge-10",
+			"class": "default",
+			"source": "0dfd3443-5a00-4535-8265-7bb0c051a054",
+			"target": "ea855c61-3684-4eb2-931b-5fc8eb40cb08"
+		},
+		"ea6b8519-14f7-4a15-ae5e-abf9dc565edc": {
+			"name": "Edge-11",
+			"class": "default",
+			"source": "14dc3eca-7591-440a-8910-a626cdb3596e",
+			"target": "ea855c61-3684-4eb2-931b-5fc8eb40cb08"
+		},
+		"8f706c0c-7e85-46a5-adde-ceed2a1b6322": {
+			"name": "Edge-12",
+			"class": "default",
+			"source": "ea855c61-3684-4eb2-931b-5fc8eb40cb08",
+			"target": "8d0c7fb6-1506-4a07-b6ca-020b23d03b0d"
+		}
+	}
+}
