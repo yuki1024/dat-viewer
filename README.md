@@ -5,6 +5,7 @@
 
 ## Usage
 - Just access to https://yuki1024.github.io/dat-viewer/
+- Download files in sample_dat dir, import them into DAT Viewer. See how it works
 - For development: Install "Web Server for Chrome" Extension to your Chrome Browser. Set up a private instant server, then select the directory includes index.html.
 
 ----------------
