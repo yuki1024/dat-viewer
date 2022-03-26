@@ -44,6 +44,7 @@ function main(){
 				'linesize': 64,
 				'read_bandwidth': '100.0 GB/s',
 				'write_bandwidth': '100.0 GB/s',
+				'duplex': 'full',
 				'color': '#FA9358',
 				'shape': 'rectangle',
 				'width': '40',
@@ -56,6 +57,7 @@ function main(){
 				'linesize': 64,
 				'read_bandwidth': '100.0 GB/s',
 				'write_bandwidth': '100.0 GB/s',
+				'duplex': 'full',
 				'color': '#FFDB61',
 				'shape': 'rectangle',
 				'width': '50',
@@ -68,6 +70,7 @@ function main(){
 				'linesize': 64,
 				'read_bandwidth': '100.0 GB/s',
 				'write_bandwidth': '100.0 GB/s',
+				'duplex': 'full',
 				'color': '#66F081',
 				'shape': 'rectangle',
 				'width': '60',
@@ -80,6 +83,7 @@ function main(){
 				'linesize': 64,
 				'read_bandwidth': '100.0 GB/s',
 				'write_bandwidth': '100.0 GB/s',
+				'duplex': 'full',
 				'color': '#FA9358',
 				'shape': 'rectangle',
 				'width': '40',
@@ -93,6 +97,7 @@ function main(){
 				'linesize': 64,
 				'read_bandwidth': '100.0 GB/s',
 				'write_bandwidth': '100.0 GB/s',
+				'duplex': 'half',
 				'color': '#60BCFF',
 				'shape': 'rectangle',
 				'width': '70',
@@ -104,6 +109,7 @@ function main(){
 				'name': 'default',
 				'read_bandwidth': '100.0 GB/s',
 				'write_bandwidth': '100.0 GB/s',
+				'duplex': 'half',
 				'color': '#8995FF',
 				'shape': 'diamond',
 				'width': '20',
@@ -127,6 +133,7 @@ function main(){
 					'x': 0,
 					'y': 0
 				},
+				'numa_node': 0,
 				'num_dp_flops': 0,
 				'num_sp_flops': 0,
 				'num_inst': 0,
@@ -146,6 +153,7 @@ function main(){
 					'x': 0,
 					'y': 0
 				},
+				'numa_node': 0,
 				'num_read': 0,
 				'num_write': 0,
 				'bytes_read': 0,
@@ -164,6 +172,7 @@ function main(){
 					'x': 0,
 					'y': 0
 				},
+				'numa_node': 0,
 				'num_read': 0,
 				'num_write': 0,
 				'bytes_read': 0,
@@ -182,6 +191,7 @@ function main(){
 					'x': 0,
 					'y': 0
 				},
+				'numa_node': 0,
 				'num_read': 0,
 				'num_write': 0,
 				'bytes_read': 0,
@@ -845,7 +855,18 @@ function main(){
 				} else {
 					let rbw = string_to_double(dat[node_class][val.class]['read_bandwidth'], 'B/s')
 					let wbw = string_to_double(dat[node_class][val.class]['write_bandwidth'], 'B/s')
-					val.time = (val.bytes_read / rbw) + (val.bytes_write / wbw);
+					//check if duplex key exists
+					if ('duplex' in dat[node_class][val.class]) {
+						if (dat[node_class][val.class]['duplex'] === 'full') {
+							val.time = Math.max((val.bytes_read / rbw), (val.bytes_write / wbw));
+						} else {
+							//should be half
+							val.time = (val.bytes_read / rbw) + (val.bytes_write / wbw);
+						}
+					} else {
+						//half as a default
+						val.time = (val.bytes_read / rbw) + (val.bytes_write / wbw);
+					}
 				}
 			}
 		});
@@ -1009,6 +1030,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
+			'numa_node': 0,
 			'num_dp_flops': 0,
 			'num_sp_flops': 0,
 			'num_inst': 0,
@@ -1055,6 +1077,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
+			'numa_node': 0,
 			'num_read': 0,
 			'num_write': 0,
 			'bytes_read': 0,
@@ -1073,6 +1096,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
+			'numa_node': 0,
 			'num_read': 0,
 			'num_write': 0,
 			'bytes_read': 0,
@@ -1091,6 +1115,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
+			'numa_node': 0,
 			'num_read': 0,
 			'num_write': 0,
 			'bytes_read': 0,

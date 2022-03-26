@@ -9,6 +9,13 @@
 - For development: Install "Web Server for Chrome" Extension to your Chrome Browser. Set up a private instant server, then select the directory includes index.html.
 
 ----------------
+v10.0 2022/3
+
+- Add duplex key in cache/mem/router obj
+- Update Refresh (Recalc) function for duplex
+- Minor changes
+
+----------------
 v9.1 2022/3
 
 - Now DAT Viewer became public and set Github Pages
