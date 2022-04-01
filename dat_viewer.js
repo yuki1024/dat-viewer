@@ -23,203 +23,48 @@ function main(){
 	//Init dat
 
 	var dat = {
-		'core_class': {
-			'default': {
-				'name': 'default',
-				'dp_flops': '2.0 GFLOPS',
-				'sp_flops': '1.0 GFLOPS',
-				'ips': '1.0 GIPS',
-				'color': '#FF5662',
-				'shape': 'rectangle',
-				'width': '30',
-				'height': '30',
-				"comment": '',
-			},
-		},
-		'cache_class': {
-			'L1': {
-				'name': 'L1',
-				'capacity': '32 KiB',
-				'associativity': 8,
-				'linesize': 64,
-				'read_bandwidth': '100.0 GB/s',
-				'write_bandwidth': '100.0 GB/s',
-				'duplex': 'full',
-				'color': '#FA9358',
-				'shape': 'rectangle',
-				'width': '40',
-				'height': '40',
-			},
-			'L2': {
-				'name': 'L2',
-				'capacity': '32 KiB',
-				'associativity': 8,
-				'linesize': 64,
-				'read_bandwidth': '100.0 GB/s',
-				'write_bandwidth': '100.0 GB/s',
-				'duplex': 'full',
-				'color': '#FFDB61',
-				'shape': 'rectangle',
-				'width': '50',
-				'height': '50',
-			},
-			'L3': {
-				'name': 'L3',
-				'capacity': '32 KiB',
-				'associativity': 8,
-				'linesize': 64,
-				'read_bandwidth': '100.0 GB/s',
-				'write_bandwidth': '100.0 GB/s',
-				'duplex': 'full',
-				'color': '#66F081',
-				'shape': 'rectangle',
-				'width': '60',
-				'height': '60',
-			},
-			'default': {
-				'name': 'default',
-				'capacity': '32 KiB',
-				'associativity': 8,
-				'linesize': 64,
-				'read_bandwidth': '100.0 GB/s',
-				'write_bandwidth': '100.0 GB/s',
-				'duplex': 'full',
-				'color': '#FA9358',
-				'shape': 'rectangle',
-				'width': '40',
-				'height': '40',
-			},
-		},
-		'mem_class': {
-			'default': {
-				'name': 'default',
-				'capacity': '1 GiB',
-				'linesize': 64,
-				'read_bandwidth': '100.0 GB/s',
-				'write_bandwidth': '100.0 GB/s',
-				'duplex': 'half',
-				'color': '#60BCFF',
-				'shape': 'rectangle',
-				'width': '70',
-				'height': '70',
-			},
-		},
-		'router_class': {
-			'default': {
-				'name': 'default',
-				'read_bandwidth': '100.0 GB/s',
-				'write_bandwidth': '100.0 GB/s',
-				'duplex': 'half',
-				'color': '#8995FF',
-				'shape': 'diamond',
-				'width': '20',
-				'height': '20',
-			},
-		},
-		'edge_class': {
-			'default': {
-				'name': 'default',
-				'color': '',
-				'width': '',
-			},
-		},
-		'core_obj': {
-			/*
-			//sample
-			'uuid': {
-				'name': 'Core-1',
-				'class': 'default',
-				'position': {
-					'x': 0,
-					'y': 0
-				},
-				'numa_node': 0,
-				'num_dp_flops': 0,
-				'num_sp_flops': 0,
-				'num_inst': 0,
-				'time_flops': 0,
-				'time_inst': 0,
-				'time': 0,
-			},
-			*/
-		},
-		'cache_obj': {
-			/*
-			//sample
-			'uuid': {
-				'name': 'Cache-1',
-				'class': 'default',
-				'position': {
-					'x': 0,
-					'y': 0
-				},
-				'numa_node': 0,
-				'num_read': 0,
-				'num_write': 0,
-				'bytes_read': 0,
-				'bytes_write': 0,
-				'time': 0,
-			},
-			*/
-		},
-		'mem_obj': {
-			/*
-			//sample
-			'uuid': {
-				'name': 'Mem-1',
-				'class': 'default',
-				'position': {
-					'x': 0,
-					'y': 0
-				},
-				'numa_node': 0,
-				'num_read': 0,
-				'num_write': 0,
-				'bytes_read': 0,
-				'bytes_write': 0,
-				'time': 0,
-			},
-			*/
-		},
-		'router_obj': {
-			/*
-			//sample
-			'uuid': {
-				'name': 'Router-1',
-				'class': 'default',
-				'position': {
-					'x': 0,
-					'y': 0
-				},
-				'numa_node': 0,
-				'num_read': 0,
-				'num_write': 0,
-				'bytes_read': 0,
-				'bytes_write': 0,
-				'time': 0,
-			},
-			*/
-		},
-		'edge_obj': {
-			/*
-			//sample
-			'uuid': {
-				'name': 'Edge-1',
-				'class': 'default',
-				'source': 'node_id',
-				'target': 'node_id',
-			},
-			*/
-		},
+		//see generate_core_default_class() for detail
+		'core_class': {}, 'cache_class': {}, 'mem_class': {}, 'router_class': {}, 'edge_class': {},
+		//see generate_core_obj() for detail
+		'core_obj': {}, 'cache_obj': {}, 'mem_obj': {}, 'router_obj': {}, 'edge_obj': {},
 	};
+
+	dat['core_class']['default'] = generate_core_default_class();
+
+	dat['cache_class']['default'] = generate_cache_default_class();
+	dat['cache_class']['l1'] = generate_cache_l1_class();
+	dat['cache_class']['l2'] = generate_cache_l2_class();
+	dat['cache_class']['l3'] = generate_cache_l3_class();
+
+	dat['mem_class']['default'] = generate_mem_default_class();
+	dat['mem_class']['dram'] = generate_mem_default_class();
+	dat['mem_class']['hbm'] = generate_mem_default_class();
+
+	dat['router_class']['default'] = generate_router_default_class();
+	dat['router_class']['socket_port'] = generate_router_default_class();
+
+	dat['edge_class']['default'] = generate_edge_default_class();
+	dat['edge_class']['core->l1'] = generate_edge_default_class();
+	dat['edge_class']['l1->core'] = generate_edge_default_class();
+	dat['edge_class']['l1->l2'] = generate_edge_default_class();
+	dat['edge_class']['l2->l1'] = generate_edge_default_class();
+	dat['edge_class']['l2->l3'] = generate_edge_default_class();
+	dat['edge_class']['l3->l2'] = generate_edge_default_class();
+	dat['edge_class']['l3<->mem'] = generate_edge_default_class();
+	dat['edge_class']['l3<->mem']['duplex'] = 'half';
+	dat['edge_class']['between_sockets'] = generate_edge_default_class();
+	dat['edge_class']['between_sockets']['duplex'] = 'half';
+
+	var selected_node_type = 'core'; // init
+	var selected_node_class = 'default'; // init
+	var class_dict = {'core': [], 'cache': [], 'mem': [], 'router': [], 'edge': []}; //init
 
 	var empty_dat = _.cloneDeep(dat); //deep copy
 
 	var dat_list = {};
 	add_a_dat('machine.dat', dat);
 
-	refresh_textarea();
-	refresh_cy_via_dat();
+	refresh_button_func();
 
 	//----------------------------------------------------------------
 	//refresh cy via dat
@@ -238,7 +83,7 @@ function main(){
 			{ selector: 'node[name]',
 				style: {'content': 'data(name)', 'font-size': node_font_size} },
 			{ selector: 'edge',
-				style: {'curve-style': 'bezier', 'line-color': '#A4A4A4'} },
+				style: {'curve-style': 'bezier', 'control-point-step-size': 20, 'line-color': '#A4A4A4', 'target-arrow-shape': 'triangle', 'arrow-scale': 1.5} },
 			//#A4A4A4 or #D8D8D8
 			//{ selector: ':selected',
 			//	style: {'background-color': 'red', 'line-color': 'red'} },
@@ -401,9 +246,23 @@ function main(){
 			obj_style.style = {};
 			if(dat.edge_class[val.class].color) {
 				obj_style.style['line-color'] = dat.edge_class[val.class].color;
+				obj_style.style['target-arrow-color'] = dat.edge_class[val.class].color;
+				obj_style.style['source-arrow-color'] = dat.edge_class[val.class].color;
 			}
 			if(dat.edge_class[val.class].width) {
 				obj_style.style['width'] = dat.edge_class[val.class].width;
+			}
+			if(dat.edge_class[val.class].shape) {
+				obj_style.style['target-arrow-shape'] = dat.edge_class[val.class].shape;
+			}
+			if(dat.edge_class[val.class].duplex) {
+				if(dat.edge_class[val.class].duplex === 'half') {
+					if(dat.edge_class[val.class].shape) {
+						obj_style.style['source-arrow-shape'] = dat.edge_class[val.class].shape;
+					}
+				} else {
+					obj_style.style['source-arrow-shape'] = 'none';
+				}
 			}
 			style.push(obj_style);
 		};
@@ -448,10 +307,13 @@ function main(){
 		console.log(a.data('target'));
 		console.log(a.data('id'));
 		*/
-		dat.edge_obj[a.data('id')] = generate_default_edge_obj();
-		dat.edge_obj[a.data('id')].source = s.data('id');
-		dat.edge_obj[a.data('id')].target = t.data('id');
+		if ((selected_node_type === 'edge') && (one_click_mode)) {
+			dat.edge_obj[a.data('id')] = generate_edge_obj(selected_node_class);
+			dat.edge_obj[a.data('id')].source = s.data('id');
+			dat.edge_obj[a.data('id')].target = t.data('id');
+		}
 		refresh_textarea();
+		refresh_cy_via_dat();
 	});
 
 	//----------------------------------------------------------------
@@ -459,18 +321,21 @@ function main(){
 
 	var selected_id_list = [];
 
+	//when select multiple objects, this will be called also multiple times
 	cy.on('select', e => {
 		//console.log(e.target.data('id'));
 		//console.log(e.target.position('x'));
 		selected_id_list.push(e.target.data('id'));
-		e.target.style({'background-color': 'red', 'line-color': 'red'});
+		e.target.style({'background-color': 'red', 'line-color': 'red', 'target-arrow-color': 'red', 'source-arrow-color': 'red'});
+
+		scroll_textarea_to_obj(e.target.data('id'));
 	});
 
 	cy.on('unselect', e => {
 		//console.log(e.target.data('id'));
 		//console.log(e.target.position('x'));
 		selected_id_list = selected_id_list.filter(a => {return a !== e.target.data('id');});
-		e.target.style({'background-color': '', 'line-color': ''});
+		e.target.style({'background-color': '', 'line-color': '', 'target-arrow-color': '', 'source-arrow-color': ''});
 	});
 
 	//----------------------------------------------------------------
@@ -478,45 +343,28 @@ function main(){
 
 	cy.on('tap', e => {
 		if (!one_click_mode) return;
+		if (selected_node_type === 'edge') return;
 
 		let id = uuidv4();
 
 		switch(selected_node_type){
 			case 'core':
-				dat.core_obj[id] = generate_default_core_obj();
+				dat.core_obj[id] = generate_core_obj(selected_node_class);
 				dat.core_obj[id].position.x = e.position.x;
 				dat.core_obj[id].position.y = e.position.y;
 				break;
 			case 'cache':
-				dat.cache_obj[id] = generate_default_cache_obj(0);
-				dat.cache_obj[id].position.x = e.position.x;
-				dat.cache_obj[id].position.y = e.position.y;
-				break;
-			case 'l1':
-				dat.cache_obj[id] = generate_default_cache_obj(1);
-				dat.cache_obj[id].class = 'L1';
-				dat.cache_obj[id].position.x = e.position.x;
-				dat.cache_obj[id].position.y = e.position.y;
-				break;
-			case 'l2':
-				dat.cache_obj[id] = generate_default_cache_obj(2);
-				dat.cache_obj[id].class = 'L2';
-				dat.cache_obj[id].position.x = e.position.x;
-				dat.cache_obj[id].position.y = e.position.y;
-				break;
-			case 'l3':
-				dat.cache_obj[id] = generate_default_cache_obj(3);
-				dat.cache_obj[id].class = 'L3';
+				dat.cache_obj[id] = generate_cache_obj(selected_node_class);
 				dat.cache_obj[id].position.x = e.position.x;
 				dat.cache_obj[id].position.y = e.position.y;
 				break;
 			case 'mem':
-				dat.mem_obj[id] = generate_default_mem_obj();
+				dat.mem_obj[id] = generate_mem_obj(selected_node_class);
 				dat.mem_obj[id].position.x = e.position.x;
 				dat.mem_obj[id].position.y = e.position.y;
 				break;
 			case 'router':
-				dat.router_obj[id] = generate_default_router_obj();
+				dat.router_obj[id] = generate_router_obj(selected_node_class);
 				dat.router_obj[id].position.x = e.position.x;
 				dat.router_obj[id].position.y = e.position.y;
 				break;
@@ -535,40 +383,18 @@ function main(){
 		one_click_mode = e.target.checked;
 	});
 
-	var selected_node_type = 'core';
-
 	document.getElementById('select_node_type').addEventListener('change', e => {
 		selected_node_type = e.target.value;
+		refresh_class_selectbox();
+		scroll_textarea_to_class();
 	});
 
-	document.getElementById('add_node_button').addEventListener('click', e => {
-		let id = uuidv4();
-
-		switch(selected_node_type){
-			case 'core': dat.core_obj[id] = generate_default_core_obj(); break;
-			case 'cache': dat.cache_obj[id] = generate_default_cache_obj(0); break;
-			case 'l1':
-				dat.cache_obj[id] = generate_default_cache_obj(1);
-				dat.cache_obj[id].class = 'L1';
-				break;
-			case 'l2':
-				dat.cache_obj[id] = generate_default_cache_obj(2);
-				dat.cache_obj[id].class = 'L2';
-				break;
-			case 'l3':
-				dat.cache_obj[id] = generate_default_cache_obj(3);
-				dat.cache_obj[id].class = 'L3';
-				break;
-			case 'mem': dat.mem_obj[id] = generate_default_mem_obj(); break;
-			case 'router': dat.router_obj[id] = generate_default_router_obj(); break;
-		}
-
-		refresh_textarea();
-		refresh_cy_via_dat();
+	document.getElementById('select_node_class').addEventListener('change', e => {
+		selected_node_class = e.target.value;
+		scroll_textarea_to_class();
 	});
 
-
-	document.getElementById('duplicate_node_button').addEventListener('click', e => {
+	document.getElementById('copy_node_button').addEventListener('click', e => {
 		let new_id_list = [];
 		let old_and_new_dict = {};
 
@@ -583,41 +409,22 @@ function main(){
 
 			switch(node_type){
 				case 'core_obj':
-					dat.core_obj[id] = generate_default_core_obj();
-					dat.core_obj[id].class = dat.core_obj[selected_id].class;
+					dat.core_obj[id] = generate_core_obj(dat.core_obj[selected_id].class);
 					dat.core_obj[id].position.x = dat.core_obj[selected_id].position.x + 50;
 					dat.core_obj[id].position.y = dat.core_obj[selected_id].position.y + 50;
 					break;
 				case 'cache_obj':
-					let cache_type_num;
-					switch(dat.cache_obj[selected_id].class){
-						case 'L1':
-							cache_type_num = 1;
-							break;
-						case 'L2':
-							cache_type_num = 2;
-							break;
-						case 'L3':
-							cache_type_num = 3;
-							break;
-						default:
-							cache_type_num = 0;
-							break;
-					}
-					dat.cache_obj[id] = generate_default_cache_obj(cache_type_num);
-					dat.cache_obj[id].class = dat.cache_obj[selected_id].class;
+					dat.cache_obj[id] = generate_cache_obj(dat.cache_obj[selected_id].class);
 					dat.cache_obj[id].position.x = dat.cache_obj[selected_id].position.x + 50;
 					dat.cache_obj[id].position.y = dat.cache_obj[selected_id].position.y + 50;
 					break;
 				case 'mem_obj':
-					dat.mem_obj[id] = generate_default_mem_obj();
-					dat.mem_obj[id].class = dat.mem_obj[selected_id].class;
+					dat.mem_obj[id] = generate_mem_obj(dat.mem_obj[selected_id].class);
 					dat.mem_obj[id].position.x = dat.mem_obj[selected_id].position.x + 50;
 					dat.mem_obj[id].position.y = dat.mem_obj[selected_id].position.y + 50;
 					break;
 				case 'router_obj':
-					dat.router_obj[id] = generate_default_router_obj();
-					dat.router_obj[id].class = dat.router_obj[selected_id].class;
+					dat.router_obj[id] = generate_router_obj(dat.router_obj[selected_id].class);
 					dat.router_obj[id].position.x = dat.router_obj[selected_id].position.x + 50;
 					dat.router_obj[id].position.y = dat.router_obj[selected_id].position.y + 50;
 					break;
@@ -629,12 +436,11 @@ function main(){
 			let node_type = find_node_type_include_id(selected_id);
 			if(node_type !== 'edge_obj') { continue; }
 
-			//When both source/target of the selected edge are also selected, the edge can be duplicated
+			//When both source/target of the selected edge are also selected, the edge can be copied
 			if((selected_id_list.includes(dat.edge_obj[selected_id].source)) && (selected_id_list.includes(dat.edge_obj[selected_id].target))) {
 				let id = uuidv4();
 				new_id_list.push(id);
-				dat.edge_obj[id] = generate_default_edge_obj();
-				dat.edge_obj[id].class = dat.edge_obj[selected_id].class;
+				dat.edge_obj[id] = generate_edge_obj(dat.edge_obj[selected_id].class);
 				dat.edge_obj[id].source = old_and_new_dict[dat.edge_obj[selected_id].source];
 				dat.edge_obj[id].target = old_and_new_dict[dat.edge_obj[selected_id].target];
 			}
@@ -707,6 +513,7 @@ function main(){
 	});
 
 	document.getElementById('import_dat_button').addEventListener('change', e => {
+		dat_list[current_selected_dat_id].dat = dat; //save current dat
 		//console.log(e.target.files);
 		let files = e.target.files;
 		for (let i=0; i<files.length; i++){
@@ -780,9 +587,9 @@ function main(){
 				} else {
 					color_temp = numa_node_color_list[val.numa_node%8];
 				}
-				let edge_style = {};
-				edge_style['background-color'] = color_temp;
-				cy.style().selector('#'+key).style(edge_style).update();
+				let this_obj_style = {};
+				this_obj_style['background-color'] = color_temp;
+				cy.style().selector('#'+key).style(this_obj_style).update();
 			}
 		});
 	}
@@ -791,7 +598,7 @@ function main(){
 		let max_time = 0;
 		let min_time = Number.MAX_VALUE;
 
-		['core_obj', 'cache_obj', 'mem_obj', 'router_obj'].forEach(node_type => {
+		['core_obj', 'cache_obj', 'mem_obj', 'router_obj', 'edge_obj'].forEach(node_type => {
 			for (const [key, val] of Object.entries(dat[node_type])){
 				if(max_time < val.time){
 					max_time = val.time;
@@ -807,7 +614,7 @@ function main(){
 			cy.style().selector('#'+key).style({'background-color': '#A4A4A4'}).update();
 		}
 
-		['core_obj', 'cache_obj', 'mem_obj', 'router_obj'].forEach(node_type => {
+		['core_obj', 'cache_obj', 'mem_obj', 'router_obj', 'edge_obj'].forEach(node_type => {
 			for (const [key, val] of Object.entries(dat[node_type])){
 				let color_temp;
 				if(val.time > 0){
@@ -815,23 +622,49 @@ function main(){
 				} else {
 					color_temp = '#A4A4A4';
 				}
-				let edge_style = {};
-				edge_style['background-color'] = color_temp;
-				cy.style().selector('#'+key).style(edge_style).update();
+				let this_obj_style = {};
+				if (node_type === 'edge_obj') {
+					this_obj_style['line-color'] = color_temp;
+				} else {
+					this_obj_style['background-color'] = color_temp;
+				}
+				cy.style().selector('#'+key).style(this_obj_style).update();
 			}
 		});
-
-		/*
-		//edge color
-		for (const [key, val] of Object.entries(dat.edge_obj)){
-			let edge_style = {};
-			edge_style['line-color'] = coloring(val.time, min_time, max_time);
-			cy.style().selector('#'+key).style(edge_style).update();
-		}
-		*/
 	}
 
-	document.getElementById('refresh_button').addEventListener('click', e => {
+	function refresh_class_selectbox(){
+		let selectbox_div = document.getElementById('select_node_class');
+
+		//delete all
+		while (selectbox_div.firstChild) {
+			selectbox_div.removeChild(selectbox_div.firstChild);
+		}
+
+		//fill all
+		let first_one = true;
+		class_dict[selected_node_type].forEach(class_name => {
+			if(first_one) {
+				selected_node_class = class_name; // The first one is set selected
+				first_one = false;
+				selectbox_div.innerHTML += '<option value="' + class_name + '" selected>' + class_name + '</option>';
+			} else {
+				selectbox_div.innerHTML += '<option value="' + class_name + '">' + class_name + '</option>';
+			}
+		});
+	}
+
+	function update_class_dict() {
+		['core', 'cache', 'mem', 'router', 'edge'].forEach(node_type => {
+			class_dict[node_type].length = 0; //delete all elements
+			//reconstruct all
+			for (const [key, val] of Object.entries(dat[node_type+'_class'])){
+				class_dict[node_type].push(key);
+			}
+		});
+	}
+
+	function refresh_button_func() {
 		let dat_text = document.getElementById('dat_textarea').value;
 		try{
 			dat = JSON.parse(dat_text);
@@ -841,8 +674,11 @@ function main(){
 			return;
 		}
 
+		update_class_dict();
+		refresh_class_selectbox();
+
 		//recalc
-		['core_obj', 'cache_obj', 'mem_obj', 'router_obj'].forEach(node_type => {
+		['core_obj', 'cache_obj', 'mem_obj', 'router_obj', 'edge_obj'].forEach(node_type => {
 			for (const [key, val] of Object.entries(dat[node_type])){
 				let node_class = node_type.replace('_obj', '_class');
 				if (node_type === 'core_obj') {
@@ -852,6 +688,9 @@ function main(){
 					let ips = string_to_double(dat[node_class][val.class]['ips'], 'IPS')
 					val.time_inst = val.num_inst / ips;
 					val.time = Math.max(val.time_flops, val.time_inst);
+				} else if (node_type === 'edge_obj') {
+					let bw = string_to_double(dat[node_class][val.class]['bandwidth'], 'B/s')
+					val.time = val.bytes_move / bw;
 				} else {
 					let rbw = string_to_double(dat[node_class][val.class]['read_bandwidth'], 'B/s')
 					let wbw = string_to_double(dat[node_class][val.class]['write_bandwidth'], 'B/s')
@@ -860,7 +699,7 @@ function main(){
 						if (dat[node_class][val.class]['duplex'] === 'full') {
 							val.time = Math.max((val.bytes_read / rbw), (val.bytes_write / wbw));
 						} else {
-							//should be half
+							//half duplex
 							val.time = (val.bytes_read / rbw) + (val.bytes_write / wbw);
 						}
 					} else {
@@ -873,7 +712,9 @@ function main(){
 
 		refresh_textarea();
 		refresh_cy_via_dat();
-	});
+	}
+
+	document.getElementById('refresh_button').addEventListener('click', refresh_button_func);
 
 	document.getElementById('label_numa_node_button').addEventListener('click', e => {
 		let numa_node_num = parseInt(document.getElementById('numa_node_num_input').value);
@@ -893,13 +734,17 @@ function main(){
 	var current_selected_dat_id;
 
 	document.getElementById('dat_selectbox').addEventListener('change', e => {
+		dat_list[current_selected_dat_id].dat = dat; //save current dat
 		current_selected_dat_id = e.target.value;
 		dat = dat_list[e.target.value].dat;
 		refresh_textarea();
 		refresh_cy_via_dat();
+		update_class_dict();
+		refresh_class_selectbox();
 	});
 
 	document.getElementById('create_new_dat').addEventListener('click', e => {
+		dat_list[current_selected_dat_id].dat = dat; //save current dat
 		let new_empty_dat = _.cloneDeep(empty_dat); //deep copy
 		add_a_dat('machine.dat', new_empty_dat);
 	});
@@ -928,6 +773,39 @@ function main(){
 		}
 		dat_list[current_selected_dat_id].name = new_name;
 		document.getElementById('dat_selectbox').querySelector('[value="'+current_selected_dat_id+'"]').innerText = new_name;
+	});
+
+	var new_class_num = -1;
+	document.getElementById('add_class_button').addEventListener('click', e => {
+		new_class_num++;
+		switch(selected_node_type){
+			case 'core':
+				dat['core_class']['new'+new_class_num] = generate_core_default_class();
+				break;
+			case 'cache':
+				dat['cache_class']['new'+new_class_num] = generate_cache_default_class();
+				break;
+			case 'mem':
+				dat['mem_class']['new'+new_class_num] = generate_mem_default_class();
+				break;
+			case 'router':
+				dat['router_class']['new'+new_class_num] = generate_router_default_class();
+				break;
+			case 'edge':
+				dat['edge_class']['new'+new_class_num] = generate_edge_default_class();
+				break;
+		}
+
+		selected_node_class = 'new'+new_class_num;
+
+		//class selectbox
+		update_class_dict();
+		refresh_class_selectbox();
+
+		//DAT json textarea
+		refresh_textarea();
+
+		//just added, not scroll to new class
 	});
 
 	//----------------------------------------------------------------
@@ -962,8 +840,15 @@ function main(){
 		//cyan rgb(0,255,255)
 
 		let range = cmax-cmin;
-		let red = Math.floor(255.0*(num-cmin)/range);
-		let green = Math.floor(255.0*(cmax-num)/range);
+		let red;
+		let green;
+		if (range === 0) {
+			red = 0;
+			green = 255;
+		} else {
+			red = Math.floor(255.0*(num-cmin)/range);
+			green = Math.floor(255.0*(cmax-num)/range);
+		}
 
 		let color_s = 'rgb(' + String(red) + ',' + String(green) + ',255)';
 
@@ -1015,17 +900,57 @@ function main(){
 		dat = dat_dict;
 		refresh_textarea();
 		refresh_cy_via_dat();
+		update_class_dict();
+		refresh_class_selectbox();
 	}
 
-	//----------------------------------------------------------------
-	//gererate functions
+	function scroll_textarea_to_class() {
+		let textarea_ele = document.getElementById('dat_textarea');
+		let all_lines = textarea_ele.value.split('\n');
 
-	var core_obj_num = -1;
-	function generate_default_core_obj(){
-		core_obj_num++;
+		let obj_type_flag = false;
+		for (let i=0; i<all_lines.length; i++) {
+			if (all_lines[i].indexOf(selected_node_type + '_class') > 0) {
+				obj_type_flag = true;
+			}
+
+			if (obj_type_flag) {
+				if (all_lines[i].indexOf(selected_node_class) > 0) {
+					let scroll_size = textarea_ele.scrollHeight / all_lines.length;
+					textarea_ele.scrollTop = scroll_size * i;
+					return;
+				}
+			}
+		}
+	}
+
+	function scroll_textarea_to_obj(obj_id) {
+		let textarea_ele = document.getElementById('dat_textarea');
+		let all_lines = textarea_ele.value.split('\n');
+
+		for (let i=0; i<all_lines.length; i++) {
+			if (all_lines[i].indexOf(obj_id) > 0) {
+				let scroll_size = textarea_ele.scrollHeight / all_lines.length;
+				textarea_ele.scrollTop = scroll_size * i;
+				return;
+			}
+		}
+	}
+
+
+	//----------------------------------------------------------------
+	//generate functions
+
+	var core_name_dict = {};
+	function generate_core_obj(class_name){
+		if (!core_name_dict.hasOwnProperty(class_name)) {
+			//key doesn't exist
+			core_name_dict[class_name] = -1;
+		}
+		core_name_dict[class_name] += 1;
 		return {
-			'name': 'Core-'+core_obj_num,
-			'class': 'default',
+			'name': dat['core_class'][class_name]['name'] + '-' +  core_name_dict[class_name],
+			'class': class_name,
 			'position': {
 				'x': 0,
 				'y': 0
@@ -1040,39 +965,17 @@ function main(){
 		};
 	}
 
-	var cache_obj_num = -1; //0
-	var cache_l1_obj_num = -1; //1
-	var cache_l2_obj_num = -1; //2
-	var cache_l3_obj_num = -1; //3
-	function generate_default_cache_obj(class_num){
-		let name_prefix;
-		let num_this_time;
-		switch(class_num){
-			case 0:
-				name_prefix = 'Cache-';
-				cache_obj_num++;
-				num_this_time = cache_obj_num;
-				break;
-			case 1:
-				name_prefix = 'L1-';
-				cache_l1_obj_num++;
-				num_this_time = cache_l1_obj_num;
-				break;
-			case 2:
-				name_prefix = 'L2-';
-				cache_l2_obj_num++;
-				num_this_time = cache_l2_obj_num;
-				break;
-			case 3:
-				name_prefix = 'L3-';
-				cache_l3_obj_num++;
-				num_this_time = cache_l3_obj_num;
-				break;
+	var cache_name_dict = {};
+	function generate_cache_obj(class_name){
+		if (!cache_name_dict.hasOwnProperty(class_name)) {
+			//key doesn't exist
+			cache_name_dict[class_name] = -1;
 		}
+		cache_name_dict[class_name] += 1;
 
 		return {
-			'name': name_prefix + num_this_time,
-			'class': 'default',
+			'name': dat['cache_class'][class_name]['name'] + '-' + cache_name_dict[class_name],
+			'class': class_name,
 			'position': {
 				'x': 0,
 				'y': 0
@@ -1086,12 +989,17 @@ function main(){
 		};
 	}
 
-	var mem_obj_num = -1;
-	function generate_default_mem_obj(){
-		mem_obj_num++;
+	var mem_name_dict = {};
+	function generate_mem_obj(class_name){
+		if (!mem_name_dict.hasOwnProperty(class_name)) {
+			//key doesn't exist
+			mem_name_dict[class_name] = -1;
+		}
+		mem_name_dict[class_name] += 1;
+
 		return {
-			'name': 'Mem-'+mem_obj_num,
-			'class': 'default',
+			'name': dat['mem_class'][class_name]['name'] + '-' + mem_name_dict[class_name],
+			'class': class_name,
 			'position': {
 				'x': 0,
 				'y': 0
@@ -1105,12 +1013,17 @@ function main(){
 		};
 	}
 
-	var router_obj_num = -1;
-	function generate_default_router_obj(){
-		router_obj_num++;
+	var router_name_dict = {};
+	function generate_router_obj(class_name){
+		if (!router_name_dict.hasOwnProperty(class_name)) {
+			//key doesn't exist
+			router_name_dict[class_name] = -1;
+		}
+		router_name_dict[class_name] += 1;
+
 		return {
-			'name': 'Router-'+router_obj_num,
-			'class': 'default',
+			'name': dat['router_class'][class_name]['name'] + '-' + router_name_dict[class_name],
+			'class': class_name,
 			'position': {
 				'x': 0,
 				'y': 0
@@ -1124,14 +1037,139 @@ function main(){
 		};
 	}
 
-	var edge_obj_num = -1;
-	function generate_default_edge_obj(){
-		edge_obj_num++;
+	var edge_name_dict = {};
+	function generate_edge_obj(class_name){
+		if (!edge_name_dict.hasOwnProperty(class_name)) {
+			//key doesn't exist
+			edge_name_dict[class_name] = -1;
+		}
+		edge_name_dict[class_name] += 1;
+
 		return {
-			'name': 'Edge-'+edge_obj_num,
-			'class': 'default',
+			'name': dat['edge_class'][class_name]['name'] + '-' + edge_name_dict[class_name],
+			'class': class_name,
 			'source': '',
 			'target': '',
+			'num_move': 0,
+			'bytes_move': 0,
+			'time': 0,
+		};
+	}
+
+	function generate_core_default_class(){
+		return {
+			'name': 'Core',
+			'dp_flops': '1.0 GFLOPS',
+			'sp_flops': '0.5 GFLOPS',
+			'ips': '1.0 GIPS',
+			'color': '#F98BC3',
+			'shape': 'rectangle',
+			'width': '30',
+			'height': '30',
+			"comment": '',
+		};
+	}
+
+	function generate_cache_default_class(){
+		return {
+			'name': 'Cache',
+			'capacity': '32 KiB',
+			'associativity': 8,
+			'linesize': 64,
+			'read_bandwidth': '100.0 GB/s',
+			'write_bandwidth': '100.0 GB/s',
+			'duplex': 'full',
+			'color': '#FCB263',
+			'shape': 'rectangle',
+			'width': '40',
+			'height': '40',
+		};
+	}
+
+	function generate_cache_l1_class(){
+		return {
+			'name': 'L1',
+			'capacity': '32 KiB',
+			'associativity': 8,
+			'linesize': 64,
+			'read_bandwidth': '100.0 GB/s',
+			'write_bandwidth': '100.0 GB/s',
+			'duplex': 'full',
+			'color': '#FCB263',
+			'shape': 'rectangle',
+			'width': '40',
+			'height': '40',
+		};
+	}
+
+	function generate_cache_l2_class(){
+		return {
+			'name': 'L2',
+			'capacity': '32 KiB',
+			'associativity': 8,
+			'linesize': 64,
+			'read_bandwidth': '100.0 GB/s',
+			'write_bandwidth': '100.0 GB/s',
+			'duplex': 'full',
+			'color': '#F7DF62',
+			'shape': 'rectangle',
+			'width': '50',
+			'height': '50',
+		};
+	}
+
+	function generate_cache_l3_class(){
+		return {
+			'name': 'L3',
+			'capacity': '32 KiB',
+			'associativity': 8,
+			'linesize': 64,
+			'read_bandwidth': '100.0 GB/s',
+			'write_bandwidth': '100.0 GB/s',
+			'duplex': 'full',
+			'color': '#66F081',
+			'shape': 'rectangle',
+			'width': '60',
+			'height': '60',
+		};
+	}
+
+	function generate_mem_default_class(){
+		return {
+			'name': 'Mem',
+			'capacity': '1 GiB',
+			'linesize': 64,
+			'read_bandwidth': '100.0 GB/s',
+			'write_bandwidth': '100.0 GB/s',
+			'duplex': 'half',
+			'color': '#66BEFE',
+			'shape': 'rectangle',
+			'width': '70',
+			'height': '70',
+		};
+	}
+
+	function generate_router_default_class(){
+		return {
+			'name': 'Router',
+			'read_bandwidth': '100.0 GB/s',
+			'write_bandwidth': '100.0 GB/s',
+			'duplex': 'half',
+			'color': '#8995FF',
+			'shape': 'diamond',
+			'width': '20',
+			'height': '20',
+		};
+	}
+
+	function generate_edge_default_class(){
+		return {
+			'name': 'Edge',
+			'bandwidth': '100.0 GB/s',
+			'duplex': 'simplex',
+			'color': '#A4A4A4',
+			'width': '3',
+			'shape': 'triangle',
 		};
 	}
 

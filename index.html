@@ -46,31 +46,32 @@
 
 	<div id="cy_util_row">
 		<select id="select_node_type" size="7">
-			<option value="core" selected>Core</option>
-			<option value="cache">Cache</option>
-			<option value="l1">(L1)</option>
-			<option value="l2">(L2)</option>
-			<option value="l3">(L3)</option>
-			<option value="mem">Mem</option>
-			<option value="router">Rounter</option>
+			<option value="core" selected>core</option>
+			<option value="cache">cache</option>
+			<option value="mem">mem</option>
+			<option value="router">rounter</option>
+			<option value="edge">edge</option>
+		</select>
+		<select id="select_node_class" size="7">
+			<option value="default" selected>default</option>
 		</select>
 		<div id="cy_util_row_right">
 			<div id="cy_buttons_div">
-				<button id="add_node_button">Add</button>
-				<button id="duplicate_node_button">Duplicate</button>
+				<button id="copy_node_button">Copy</button>
 				<button id="remove_ele_button">Remove</button>
 				<button id="align_button">Align</button>
-				<button id="font_plus_button">Font++</button>
-				<button id="font_minus_button">Font--</button>
-				<button id="coloring_button">Coloring</button>
+				<button id="font_plus_button">F++</button>
+				<button id="font_minus_button">F--</button>
+				<button id="coloring_button">Color</button>
 				<button id="refresh_button">Refresh</button>
 			</div>
 			<div id="cy_util_row_right_bottom">
-				<button id="label_numa_node_button">Label NUMA node</button>
+				<button id="add_class_button">Add a Class</button>
+				<button id="label_numa_node_button">Label numa</button>
 				<input id="numa_node_num_input" type="number" value="0" min="0" max="1000">
 				<div id="cy_checkbox_div">
 					<input type="checkbox" id="one_click_mode" checked>
-					<label for="one_click_mode">One-click gen</label>
+					<label for="one_click_mode">Gen mode</label>
 				</div>
 			</div>
 		</div>
@@ -90,12 +91,18 @@
 
 	<!--read me section-->
 	<div id="readme_div">
-		<h2>DAT Viewer</h2>
+		<h1>DAT Viewer</h1>
 		<ul>
 			<li>DAT: Definition of Architecture Topology (JSON format)</li>
 			<li>Implemented in Javascript (+HTML+CSS)</li>
 			<li>Graph Tool: Cytoscape.js</li>
 			<li>Repo: <a href="https://github.com/yuki1024/dat-viewer">https://github.com/yuki1024/dat-viewer</a></li>
+		</ul>
+		<h2>Select Boxes</h2>
+		<ul>
+			<li><b>DAT file select box</b>: Lists imported DAT files</li>
+			<li><b>Object type select box</b>: Select one object type. This is used when a new node is made. <b>When you make edges, you must select "edge" here</b> before making edges in cy window</li>
+			<li><b>Class select box</b>: Select one class. <b>Need to click refresh button</b> to show new classes here after adding ones in DAT json textfield. This is used for making a new node and a new edge. <b>Classes are not limited</b>. User can make user's own classes and fill specs. Also can modify already existed preset classes. (For example, L1/L2/L3 classes in Cache obj are just presets to make a DAT file easily)</li>
 		</ul>
 		<h2>Buttons</h2>
 		<ul>
@@ -104,23 +111,27 @@
 			<li><b>New</b>: Create a new dat file</li>
 			<li><b>Del</b>: Delete a currently selected dat file</li>
 			<li><b>Rename</b>: Rename a dat file name</li>
-			<li><b>Add</b>: Add a node whose object type is selected on the selectbox</li>
-			<li><b>Duplicate</b>: Deplicate selected nodes</li>
+			<li><b>Copy</b>: Copy selected nodes</li>
 			<li><b>Remove</b>: Remove selected nodes</li>
 			<li><b>Align</b>: Align selected nodes</li>
-			<li><b>Front++/Font--</b>: Increase/Decrease a font size</li>
-			<li><b>Coloring</b>: Switch coloring modes. 1.Default coloring 2.NUMA node coloring 3.Coloring nodes with "time" values</li>
-			<li><b>Refresh</b>: Re-calcutate "time" with new bandwidth / flops / ips values modified by user and then refresh graph window via json textfield and also refresh the textfield</li>
-			<li><b>Label NUMA node</b>: Label selected nodes a NUMA node group with a user set number</li>
-			<li><b>One-click gen</b>: When this is set, user can add a node with only one click</li>
+			<li><b>F++/F--</b>: Increase/Decrease a font size</li>
+			<li><b>Color</b>: Switch coloring modes. <b>1.Default coloring 2.NUMA node coloring 3.Result coloring with "time" values</b></li>
+			<li><b>Refresh</b>: Re-calcutate "time" with new bandwidth / flops / ips values modified by user and then refresh graph window via json textfield and also refresh the textfield. Also refresh class select box. <b>Useful to see how result changes when some conditions</b> (change e.g. bandwidth)</li>
+			<li><b>Add a Class</b>: Add a new class. (You can make a new class by directly writing in DAT json textarea also. This button is just for making one easily) When you want to remove a class, just delete the class definition in DAT json textarea then refresh.</li>
+			<li><b>Label numa</b>: Label selected nodes a <b>NUMA node group</b> with a number in the right box set by user</li>
+			<li><b>Gen mode</b>: When this is checked, you can generate a new node whose object type/class are selected on the selectbox with only one click. <b>When this is unchecked, you cannot make any nodes and edges</b> unless using copy button</li>
 		</ul>
 		<h2>Tips</h2>
 		<ul>
 			<li>JSON textarea is refreshed as a json format every time an element in the graph changes (e.g. when a node is moved with a mouse)</li>
 			<li>It will work on not only a desktop env but also a mobile env. (unverified)</li>
-			<li>SHIFT key in a desktop env and three finger swipe in a mobile env are available for multiple object selection.</li>
+			<li><b>SHIFT key</b> in a desktop env and three finger swipe in a mobile env are available for <b>multiple object selection</b>.</li>
 			<li>Flops attributes in core_class must be filled as a flops per core. (ipc also)</li>
 			<li>You can put "comment" properties (as keys in json) anywhere freely. They are just ignored by DAT Viewer and PMNet.</li>
+			<li><b>duplex</b> in cache/mem/router obj can be choosed from <b>"half" or "full"</b>. half calculates occupation time by adding read and write but full does by max(read, write). duplex in edge obj can be choosed from <b>"half" or "simplex"</b>. When user wants to make full duplex, just make two simplex edges between objects.</li>
+			<li>Shapes in obj: <a href="https://js.cytoscape.org/#style/node-body">Node body (Cytoscape.js)<a></li>
+			<li>Shapes in edge: <a href="https://js.cytoscape.org/#style/edge-arrow">Edge arrow (Cytoscape.js)<a></li>
+			<li>DAT Viewer may output errors in some cases. (For exapmle, missing class definition when an obj refers) You can check error messages in DevTool in browser. When DAT Viewer doesn't work well, reload it.</li>
 		</ul>
 	</div>
 

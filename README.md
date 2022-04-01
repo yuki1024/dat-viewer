@@ -5,8 +5,26 @@
 
 ## Usage
 - Just access to https://yuki1024.github.io/dat-viewer/
+- See description at the bottom of the page
 - Download files in sample_dat dir, import them into DAT Viewer. See how it works
 - For development: Install "Web Server for Chrome" Extension to your Chrome Browser. Set up a private instant server, then select the directory includes index.html.
+
+----------------
+v11.0 2022/4
+
+- Change UI a lot
+- Remove Add button
+- Implement Class select box
+- Implement Add a Class button
+- Edge object has stats info
+- Edge class has some info for stats also
+- Edge becomes to aware direction and duplex
+- Coloring edges
+- Auto-scroll when a class is selected in selectbox or an obj is selected in cy
+- Add some preset classes on each obj
+- Revise default colors
+- Bugfix in DAT file manager
+- Minor changes
 
 ----------------
 v10.0 2022/3
