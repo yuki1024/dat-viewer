@@ -132,6 +132,7 @@
 			<li>Shapes in obj: <a href="https://js.cytoscape.org/#style/node-body">Node body (Cytoscape.js)<a></li>
 			<li>Shapes in edge: <a href="https://js.cytoscape.org/#style/edge-arrow">Edge arrow (Cytoscape.js)<a></li>
 			<li>DAT Viewer may output errors in some cases. (For exapmle, missing class definition when an obj refers) You can check error messages in DevTool in browser. When DAT Viewer doesn't work well, reload it.</li>
+			<li>Edge's arrow direction doesn't mean routing toward mem node from the obj. It means just read/write direction. Thus, putting only one simplex edge between two objs are semantically prohibited. (This means actually read can be done but write cannot.) You should <b>put two simplex edges as a full duplex</b> or <b>put one half-duplex edge</b> when you connect two objs</li>
 		</ul>
 	</div>
 

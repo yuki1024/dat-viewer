@@ -32,16 +32,31 @@ function main(){
 	dat['core_class']['default'] = generate_core_default_class();
 
 	dat['cache_class']['default'] = generate_cache_default_class();
-	dat['cache_class']['l1'] = generate_cache_l1_class();
-	dat['cache_class']['l2'] = generate_cache_l2_class();
-	dat['cache_class']['l3'] = generate_cache_l3_class();
+	dat['cache_class']['l1'] = generate_cache_default_class();
+	dat['cache_class']['l1']['name'] = 'L1';
+	dat['cache_class']['l1']['color'] = '#FCB263';
+	dat['cache_class']['l1']['width'] = '40';
+	dat['cache_class']['l1']['height'] = '40';
+	dat['cache_class']['l2'] = generate_cache_default_class();
+	dat['cache_class']['l2']['name'] = 'L2';
+	dat['cache_class']['l2']['color'] = '#F7DF62';
+	dat['cache_class']['l2']['width'] = '50';
+	dat['cache_class']['l2']['height'] = '50';
+	dat['cache_class']['l3'] = generate_cache_default_class();
+	dat['cache_class']['l3']['name'] = 'L3';
+	dat['cache_class']['l3']['color'] = '#66F081';
+	dat['cache_class']['l3']['width'] = '60';
+	dat['cache_class']['l3']['height'] = '60';
 
 	dat['mem_class']['default'] = generate_mem_default_class();
 	dat['mem_class']['dram'] = generate_mem_default_class();
+	dat['mem_class']['dram']['name'] = 'DRAM';
 	dat['mem_class']['hbm'] = generate_mem_default_class();
+	dat['mem_class']['hbm']['name'] = 'HBM';
 
 	dat['router_class']['default'] = generate_router_default_class();
 	dat['router_class']['socket_port'] = generate_router_default_class();
+	dat['router_class']['socket_port']['name'] = 'Socket_Port';
 
 	dat['edge_class']['default'] = generate_edge_default_class();
 	dat['edge_class']['core->l1'] = generate_edge_default_class();
@@ -625,6 +640,8 @@ function main(){
 				let this_obj_style = {};
 				if (node_type === 'edge_obj') {
 					this_obj_style['line-color'] = color_temp;
+					this_obj_style['target-arrow-color'] = color_temp;
+					this_obj_style['source-arrow-color'] = color_temp;
 				} else {
 					this_obj_style['background-color'] = color_temp;
 				}
@@ -1037,16 +1054,12 @@ function main(){
 		};
 	}
 
-	var edge_name_dict = {};
+	var edge_name_num = -1;
 	function generate_edge_obj(class_name){
-		if (!edge_name_dict.hasOwnProperty(class_name)) {
-			//key doesn't exist
-			edge_name_dict[class_name] = -1;
-		}
-		edge_name_dict[class_name] += 1;
+		edge_name_num++;
 
 		return {
-			'name': dat['edge_class'][class_name]['name'] + '-' + edge_name_dict[class_name],
+			'name': dat['edge_class'][class_name]['name'] + '-' + edge_name_num,
 			'class': class_name,
 			'source': '',
 			'target': '',
@@ -1083,54 +1096,6 @@ function main(){
 			'shape': 'rectangle',
 			'width': '40',
 			'height': '40',
-		};
-	}
-
-	function generate_cache_l1_class(){
-		return {
-			'name': 'L1',
-			'capacity': '32 KiB',
-			'associativity': 8,
-			'linesize': 64,
-			'read_bandwidth': '100.0 GB/s',
-			'write_bandwidth': '100.0 GB/s',
-			'duplex': 'full',
-			'color': '#FCB263',
-			'shape': 'rectangle',
-			'width': '40',
-			'height': '40',
-		};
-	}
-
-	function generate_cache_l2_class(){
-		return {
-			'name': 'L2',
-			'capacity': '32 KiB',
-			'associativity': 8,
-			'linesize': 64,
-			'read_bandwidth': '100.0 GB/s',
-			'write_bandwidth': '100.0 GB/s',
-			'duplex': 'full',
-			'color': '#F7DF62',
-			'shape': 'rectangle',
-			'width': '50',
-			'height': '50',
-		};
-	}
-
-	function generate_cache_l3_class(){
-		return {
-			'name': 'L3',
-			'capacity': '32 KiB',
-			'associativity': 8,
-			'linesize': 64,
-			'read_bandwidth': '100.0 GB/s',
-			'write_bandwidth': '100.0 GB/s',
-			'duplex': 'full',
-			'color': '#66F081',
-			'shape': 'rectangle',
-			'width': '60',
-			'height': '60',
 		};
 	}
 
@@ -1177,13 +1142,13 @@ function main(){
 	//Tooltip
 	var tip;
 
-	cy.on('mouseover', 'node', e => {
+	cy.on('mouseover', 'ele', e => {
 		let id = e.target.data('id');
 		let exist = false;
 		let nt = '';
 
 		//check existence
-		['core_obj', 'cache_obj', 'mem_obj', 'router_obj'].forEach(node_type => {
+		['core_obj', 'cache_obj', 'mem_obj', 'router_obj', 'edge_obj'].forEach(node_type => {
 			for (const [key, val] of Object.entries(dat[node_type])){
 				if(key === id) { exist = true; nt = node_type;  return; }
 			}
@@ -1199,6 +1164,10 @@ function main(){
 			tip_text += 'num_inst: ' + dat[nt][id]['num_inst'].toPrecision(3) + '<br>'
 			tip_text += 'time_flops: ' + dat[nt][id]['time_flops'].toPrecision(3) + '<br>'
 			tip_text += 'time_inst: ' + dat[nt][id]['time_inst'].toPrecision(3) + '<br>'
+			tip_text += 'time: ' + dat[nt][id]['time'].toPrecision(3) + '<br>'
+		} else if(nt === 'edge_obj') {
+			tip_text += 'num_move: ' + dat[nt][id]['num_move'].toPrecision(3) + '<br>'
+			tip_text += 'bytes_move: ' + dat[nt][id]['bytes_move'].toPrecision(3) + '<br>'
 			tip_text += 'time: ' + dat[nt][id]['time'].toPrecision(3) + '<br>'
 		} else {
 			//cache,mem,router
@@ -1238,7 +1207,7 @@ function main(){
 
 	});
 
-	cy.on('mouseout', 'node', e => {
+	cy.on('mouseout', 'ele', e => {
 		tip.destroy();
 	});
 

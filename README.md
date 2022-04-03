@@ -10,6 +10,14 @@
 - For development: Install "Web Server for Chrome" Extension to your Chrome Browser. Set up a private instant server, then select the directory includes index.html.
 
 ----------------
+v12.0 2022/4
+
+- Fix label names of preset classes
+- Fix coloring at arrow heads on edges
+- Tooltip (mouseover) is now available also on edge
+- Add a caveat text about edge on Tips
+
+----------------
 v11.0 2022/4
 
 - Change UI a lot
