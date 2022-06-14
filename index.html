@@ -118,21 +118,24 @@
 			<li><b>Color</b>: Switch coloring modes. <b>1.Default coloring 2.NUMA node coloring 3.Result coloring with "time" values</b></li>
 			<li><b>Refresh</b>: Re-calcutate "time" with new bandwidth / flops / ips values modified by user and then refresh graph window via json textfield and also refresh the textfield. Also refresh class select box. <b>Useful to see how result changes when some conditions</b> (change e.g. bandwidth)</li>
 			<li><b>Add a Class</b>: Add a new class. (You can make a new class by directly writing in DAT json textarea also. This button is just for making one easily) When you want to remove a class, just delete the class definition in DAT json textarea then refresh.</li>
-			<li><b>Label numa</b>: Label selected nodes a <b>NUMA node group</b> with a number in the right box set by user</li>
+			<li><b>Label numa</b>: Label selected nodes a <b>NUMA node group</b> with a number in the right box set by user. This overwrites an old value. numa_node should be single on Core obj for PMNet simulation, but multiple numa_nodes available on Mem obj. When you want to set multiple numa_nodes, writing it with "," as a delimiter in JSON textarea by hand is needed. (e.g. "numa_node": "0,1") When "slice" flag is true in Cache class, <b>numa_node key in CacheObj</b> is used not for numa node but for <b>slice</b>. Same numa_node number means logically shared.</li>
 			<li><b>Gen mode</b>: When this is checked, you can generate a new node whose object type/class are selected on the selectbox with only one click. <b>When this is unchecked, you cannot make any nodes and edges</b> unless using copy button</li>
 		</ul>
 		<h2>Tips</h2>
 		<ul>
 			<li>JSON textarea is refreshed as a json format every time an element in the graph changes (e.g. when a node is moved with a mouse)</li>
+			<li>Realtime graph refresh available: When there is any change in JSON textarea, the graph also changes immediately.</li>
 			<li>It will work on not only a desktop env but also a mobile env. (unverified)</li>
 			<li><b>SHIFT key</b> in a desktop env and three finger swipe in a mobile env are available for <b>multiple object selection</b>.</li>
 			<li>Flops attributes in core_class must be filled as a flops per core. (ipc also)</li>
 			<li>You can put "comment" properties (as keys in json) anywhere freely. They are just ignored by DAT Viewer and PMNet.</li>
-			<li><b>duplex</b> in cache/mem/router obj can be choosed from <b>"half" or "full"</b>. half calculates occupation time by adding read and write but full does by max(read, write). duplex in edge obj can be choosed from <b>"half" or "simplex"</b>. When user wants to make full duplex, just make two simplex edges between objects.</li>
+			<li><b>duplex</b> in cache/mem/router obj can be choosed from <b>"half" or "full"</b>. half calculates occupation time by adding read and write but full does by max(read, write). duplex in edge obj can be choosed from <b>"half" or "full" or "simplex"</b>. The directions (=<b>arrows</b>) of edges are <b>visible when they are selected</b>.</li>
 			<li>Shapes in obj: <a href="https://js.cytoscape.org/#style/node-body">Node body (Cytoscape.js)<a></li>
 			<li>Shapes in edge: <a href="https://js.cytoscape.org/#style/edge-arrow">Edge arrow (Cytoscape.js)<a></li>
+			<li>"default" class of edge should always exist just in case edge objs are made without selecting any edge class.</li>
+			<li><b>type</b> in mem_class can be selected from <b>"main", "sub", or "scratchpad"</b>. When "sub" is set, "sub_id" (which should be a number from 0 to 15) is used to distinguish kinds of sub memories.</li>
+			<li>When "slice" key is set "true" in Cache Class, cache spec should be filled as a sliced one.</li>
 			<li>DAT Viewer may output errors in some cases. (For exapmle, missing class definition when an obj refers) You can check error messages in DevTool in browser. When DAT Viewer doesn't work well, reload it.</li>
-			<li>Edge's arrow direction doesn't mean routing toward mem node from the obj. It means just read/write direction. Thus, putting only one simplex edge between two objs are semantically prohibited. (This means actually read can be done but write cannot.) You should <b>put two simplex edges as a full duplex</b> or <b>put one half-duplex edge</b> when you connect two objs</li>
 		</ul>
 	</div>
 

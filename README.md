@@ -10,6 +10,21 @@
 - For development: Install "Web Server for Chrome" Extension to your Chrome Browser. Set up a private instant server, then select the directory includes index.html.
 
 ----------------
+v13.0 2022/6
+
+- Edge duplex: half/full/simplex
+- Change Edge shapes
+- Some keys in Edge class/obj are changed into s2t and t2s
+- NUMA node coloring mode now shows multiple colors in an obj when multiple numa_nodes are set in the obj
+- Realtime graph refreshing (by the change of json text field) is now revived. This function had been adopeted before v7 or less versions until it became obsolete in v8. This might be still costly. If any problem occurs, it will become obsolete again in the future versions.
+- Edge objs of default class can be made without selecting any edge class
+- Add type and sub_id keys in Mem class to distinguish memory types
+- Add some preset classes (include Scratchpad memory)
+- Add slice key in Cache class
+- Change some default coloring
+- Minor changes
+
+----------------
 v12.0 2022/4
 
 - Fix label names of preset classes

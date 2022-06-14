@@ -34,17 +34,18 @@ function main(){
 	dat['cache_class']['default'] = generate_cache_default_class();
 	dat['cache_class']['l1'] = generate_cache_default_class();
 	dat['cache_class']['l1']['name'] = 'L1';
-	dat['cache_class']['l1']['color'] = '#FCB263';
+	dat['cache_class']['l1']['color'] = '#FDC285';
 	dat['cache_class']['l1']['width'] = '40';
 	dat['cache_class']['l1']['height'] = '40';
 	dat['cache_class']['l2'] = generate_cache_default_class();
 	dat['cache_class']['l2']['name'] = 'L2';
-	dat['cache_class']['l2']['color'] = '#F7DF62';
+	dat['cache_class']['l2']['color'] = '#8AFEA1';
 	dat['cache_class']['l2']['width'] = '50';
 	dat['cache_class']['l2']['height'] = '50';
 	dat['cache_class']['l3'] = generate_cache_default_class();
 	dat['cache_class']['l3']['name'] = 'L3';
-	dat['cache_class']['l3']['color'] = '#66F081';
+	dat['cache_class']['l3']['slice'] = 'true';
+	dat['cache_class']['l3']['color'] = '#65F7C2';
 	dat['cache_class']['l3']['width'] = '60';
 	dat['cache_class']['l3']['height'] = '60';
 
@@ -53,22 +54,37 @@ function main(){
 	dat['mem_class']['dram']['name'] = 'DRAM';
 	dat['mem_class']['hbm'] = generate_mem_default_class();
 	dat['mem_class']['hbm']['name'] = 'HBM';
+	dat['mem_class']['hbm']['type'] = 'sub';
+	dat['mem_class']['hbm']['color'] = '#74DCFA';
+	dat['mem_class']['dcpmm'] = generate_mem_default_class();
+	dat['mem_class']['dcpmm']['name'] = 'DCPMM';
+	dat['mem_class']['dcpmm']['type'] = 'sub';
+	dat['mem_class']['dcpmm']['sub_id'] = 1;
+	dat['mem_class']['dcpmm']['color'] = '#8DB0FA';
+	dat['mem_class']['dcpmm']['width'] = '80';
+	dat['mem_class']['dcpmm']['height'] = '80';
+	dat['mem_class']['scratchpad'] = generate_mem_default_class();
+	dat['mem_class']['scratchpad']['name'] = 'SPM';
+	dat['mem_class']['scratchpad']['type'] = 'scratchpad';
+	dat['mem_class']['scratchpad']['width'] = '40';
+	dat['mem_class']['scratchpad']['height'] = '40';
+	dat['mem_class']['scratchpad']['color'] = '#5EF9EE';
 
 	dat['router_class']['default'] = generate_router_default_class();
 	dat['router_class']['socket_port'] = generate_router_default_class();
 	dat['router_class']['socket_port']['name'] = 'Socket_Port';
 
 	dat['edge_class']['default'] = generate_edge_default_class();
-	dat['edge_class']['core->l1'] = generate_edge_default_class();
-	dat['edge_class']['l1->core'] = generate_edge_default_class();
-	dat['edge_class']['l1->l2'] = generate_edge_default_class();
-	dat['edge_class']['l2->l1'] = generate_edge_default_class();
-	dat['edge_class']['l2->l3'] = generate_edge_default_class();
-	dat['edge_class']['l3->l2'] = generate_edge_default_class();
-	dat['edge_class']['l3<->mem'] = generate_edge_default_class();
-	dat['edge_class']['l3<->mem']['duplex'] = 'half';
-	dat['edge_class']['between_sockets'] = generate_edge_default_class();
-	dat['edge_class']['between_sockets']['duplex'] = 'half';
+	dat['edge_class']['core-l1'] = generate_edge_default_class();
+	dat['edge_class']['l1-l2'] = generate_edge_default_class();
+	dat['edge_class']['l2-l3'] = generate_edge_default_class();
+	dat['edge_class']['l3-mem'] = generate_edge_default_class();
+	dat['edge_class']['l3-mem']['duplex'] = 'half';
+	dat['edge_class']['sockets'] = generate_edge_default_class();
+	dat['edge_class']['sockets']['duplex'] = 'half';
+	dat['edge_class']['simplex'] = generate_edge_default_class();
+	dat['edge_class']['simplex']['duplex'] = 'simplex';
+	dat['edge_class']['simplex']['shape'] = 'triangle';
 
 	var selected_node_type = 'core'; // init
 	var selected_node_class = 'default'; // init
@@ -269,14 +285,13 @@ function main(){
 			}
 			if(dat.edge_class[val.class].shape) {
 				obj_style.style['target-arrow-shape'] = dat.edge_class[val.class].shape;
+				obj_style.style['source-arrow-shape'] = dat.edge_class[val.class].shape;
 			}
 			if(dat.edge_class[val.class].duplex) {
-				if(dat.edge_class[val.class].duplex === 'half') {
+				if(dat.edge_class[val.class].duplex === 'simplex') {
 					if(dat.edge_class[val.class].shape) {
-						obj_style.style['source-arrow-shape'] = dat.edge_class[val.class].shape;
+						obj_style.style['source-arrow-shape'] = 'none';
 					}
-				} else {
-					obj_style.style['source-arrow-shape'] = 'none';
 				}
 			}
 			style.push(obj_style);
@@ -326,6 +341,10 @@ function main(){
 			dat.edge_obj[a.data('id')] = generate_edge_obj(selected_node_class);
 			dat.edge_obj[a.data('id')].source = s.data('id');
 			dat.edge_obj[a.data('id')].target = t.data('id');
+		} else if (one_click_mode) {
+			dat.edge_obj[a.data('id')] = generate_edge_obj('default');
+			dat.edge_obj[a.data('id')].source = s.data('id');
+			dat.edge_obj[a.data('id')].target = t.data('id');
 		}
 		refresh_textarea();
 		refresh_cy_via_dat();
@@ -341,7 +360,7 @@ function main(){
 		//console.log(e.target.data('id'));
 		//console.log(e.target.position('x'));
 		selected_id_list.push(e.target.data('id'));
-		e.target.style({'background-color': 'red', 'line-color': 'red', 'target-arrow-color': 'red', 'source-arrow-color': 'red'});
+		e.target.style({'background-color': 'red', 'line-color': 'red', 'target-arrow-color': 'red', 'source-arrow-color': 'red', 'target-arrow-shape': 'triangle', 'background-fill': 'solid'});
 
 		scroll_textarea_to_obj(e.target.data('id'));
 	});
@@ -350,7 +369,7 @@ function main(){
 		//console.log(e.target.data('id'));
 		//console.log(e.target.position('x'));
 		selected_id_list = selected_id_list.filter(a => {return a !== e.target.data('id');});
-		e.target.style({'background-color': '', 'line-color': '', 'target-arrow-color': '', 'source-arrow-color': ''});
+		e.target.style({'background-color': '', 'line-color': '', 'target-arrow-color': '', 'source-arrow-color': '', 'target-arrow-shape': '', 'background-fill': ''});
 	});
 
 	//----------------------------------------------------------------
@@ -596,15 +615,50 @@ function main(){
 	function coloring_with_numa_node(){
 		['core_obj', 'cache_obj', 'mem_obj', 'router_obj'].forEach(node_type => {
 			for (const [key, val] of Object.entries(dat[node_type])){
-				let color_temp;
 				if(!val.numa_node){
-					color_temp = numa_node_color_list[0];
+					//no numa_node key
+					let this_obj_style = {};
+					this_obj_style['background-color'] = numa_node_color_list[0];
+					cy.style().selector('#'+key).style(this_obj_style).update();
+
+				} else if (val.numa_node.split(',').length === 1) {
+					//single color
+					let this_obj_style = {};
+					this_obj_style['background-color'] = numa_node_color_list[parseInt(val.numa_node)%8];
+					cy.style().selector('#'+key).style(this_obj_style).update();
+
 				} else {
-					color_temp = numa_node_color_list[val.numa_node%8];
+					//multiple nn, multiple colors
+					let nn_list = val.numa_node.split(',').map(Number);
+					let stop_color_str = '';
+					let stop_pos_str = '';
+					let temp_count = 0;
+					for (const one_nn of nn_list) {
+						let one_color = String(numa_node_color_list[one_nn%8]);
+						stop_color_str += ( one_color + ' ' + one_color + ' ' );
+						stop_pos_str += String( Math.floor(100/nn_list.length) * temp_count);
+						stop_pos_str += '% ';
+						stop_pos_str += String( Math.floor(100/nn_list.length) * (temp_count+1));
+						stop_pos_str += '% ';
+						temp_count++;
+					}
+					//console.log(stop_color_str);
+					//console.log(stop_pos_str);
+
+					//example
+					//this_obj_style['background-gradient-stop-colors'] = 'cyan cyan test test magenta magenta';
+					//this_obj_style['background-gradient-stop-positions'] = '0% 33%% 33% 66% 66% 100%';
+					//this_obj_style['background-gradient-stop-colors'] = 'cyan cyan magenta magenta';
+					//this_obj_style['background-gradient-stop-positions'] = '0% 50% 50% 100%';
+
+					let this_obj_style = {};
+					this_obj_style['background-fill'] = 'linear-gradient';
+					this_obj_style['background-gradient-stop-colors'] = stop_color_str;
+					this_obj_style['background-gradient-stop-positions'] = stop_pos_str;
+					this_obj_style['background-gradient-direction'] = 'to-bottom-right';
+					cy.style().selector('#'+key).style(this_obj_style).update();
 				}
-				let this_obj_style = {};
-				this_obj_style['background-color'] = color_temp;
-				cy.style().selector('#'+key).style(this_obj_style).update();
+
 			}
 		});
 	}
@@ -706,8 +760,25 @@ function main(){
 					val.time_inst = val.num_inst / ips;
 					val.time = Math.max(val.time_flops, val.time_inst);
 				} else if (node_type === 'edge_obj') {
-					let bw = string_to_double(dat[node_class][val.class]['bandwidth'], 'B/s')
-					val.time = val.bytes_move / bw;
+
+					let s2tbw = string_to_double(dat[node_class][val.class]['s2t_bandwidth'], 'B/s')
+					let t2sbw = string_to_double(dat[node_class][val.class]['t2s_bandwidth'], 'B/s')
+					//check if duplex key exists
+					if ('duplex' in dat[node_class][val.class]) {
+						if (dat[node_class][val.class]['duplex'] === 'full') {
+							val.time = Math.max((val.bytes_s2t / s2tbw), (val.bytes_t2s / t2sbw));
+						} else if (dat[node_class][val.class]['duplex'] === 'half') {
+							val.time = (val.bytes_s2t / s2tbw) + (val.bytes_t2s / t2sbw);
+						} else if (dat[node_class][val.class]['duplex'] === 'simplex') {
+							val.time = val.bytes_s2t / s2tbw;
+						} else {
+							//half as a default
+							val.time = (val.bytes_s2t / s2tbw) + (val.bytes_t2s / t2sbw);
+						}
+					} else {
+						//half as a default
+						val.time = (val.bytes_s2t / s2tbw) + (val.bytes_t2s / t2sbw);
+					}
 				} else {
 					let rbw = string_to_double(dat[node_class][val.class]['read_bandwidth'], 'B/s')
 					let wbw = string_to_double(dat[node_class][val.class]['write_bandwidth'], 'B/s')
@@ -738,10 +809,10 @@ function main(){
 		for(let selected_id of selected_id_list){
 			let node_type = find_node_type_include_id(selected_id);
 			switch(node_type){
-				case 'core_obj': dat.core_obj[selected_id].numa_node = numa_node_num; break;
-				case 'cache_obj': dat.cache_obj[selected_id].numa_node = numa_node_num; break;
-				case 'mem_obj': dat.mem_obj[selected_id].numa_node = numa_node_num; break;
-				case 'router_obj': dat.router_obj[selected_id].numa_node = numa_node_num; break;
+				case 'core_obj': dat.core_obj[selected_id].numa_node = String(numa_node_num); break;
+				case 'cache_obj': dat.cache_obj[selected_id].numa_node = String(numa_node_num); break;
+				case 'mem_obj': dat.mem_obj[selected_id].numa_node = String(numa_node_num); break;
+				case 'router_obj': dat.router_obj[selected_id].numa_node = String(numa_node_num); break;
 			}
 		}
 		refresh_textarea();
@@ -972,7 +1043,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
-			'numa_node': 0,
+			'numa_node': '0',
 			'num_dp_flops': 0,
 			'num_sp_flops': 0,
 			'num_inst': 0,
@@ -997,7 +1068,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
-			'numa_node': 0,
+			'numa_node': '0',
 			'num_read': 0,
 			'num_write': 0,
 			'bytes_read': 0,
@@ -1021,7 +1092,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
-			'numa_node': 0,
+			'numa_node': '0',
 			'num_read': 0,
 			'num_write': 0,
 			'bytes_read': 0,
@@ -1045,7 +1116,7 @@ function main(){
 				'x': 0,
 				'y': 0
 			},
-			'numa_node': 0,
+			'numa_node': '0',
 			'num_read': 0,
 			'num_write': 0,
 			'bytes_read': 0,
@@ -1063,8 +1134,10 @@ function main(){
 			'class': class_name,
 			'source': '',
 			'target': '',
-			'num_move': 0,
-			'bytes_move': 0,
+			'num_s2t': 0,
+			'num_t2s': 0,
+			'bytes_s2t': 0,
+			'bytes_t2s': 0,
 			'time': 0,
 		};
 	}
@@ -1075,7 +1148,7 @@ function main(){
 			'dp_flops': '1.0 GFLOPS',
 			'sp_flops': '0.5 GFLOPS',
 			'ips': '1.0 GIPS',
-			'color': '#F98BC3',
+			'color': '#FF9DCE',
 			'shape': 'rectangle',
 			'width': '30',
 			'height': '30',
@@ -1092,7 +1165,8 @@ function main(){
 			'read_bandwidth': '100.0 GB/s',
 			'write_bandwidth': '100.0 GB/s',
 			'duplex': 'full',
-			'color': '#FCB263',
+			'slice': 'false',
+			'color': '#FDC285',
 			'shape': 'rectangle',
 			'width': '40',
 			'height': '40',
@@ -1107,7 +1181,9 @@ function main(){
 			'read_bandwidth': '100.0 GB/s',
 			'write_bandwidth': '100.0 GB/s',
 			'duplex': 'half',
-			'color': '#66BEFE',
+			'type': 'main',
+			'sub_id': 0,
+			'color': '#7AC6FD',
 			'shape': 'rectangle',
 			'width': '70',
 			'height': '70',
@@ -1130,11 +1206,12 @@ function main(){
 	function generate_edge_default_class(){
 		return {
 			'name': 'Edge',
-			'bandwidth': '100.0 GB/s',
-			'duplex': 'simplex',
+			's2t_bandwidth': '100.0 GB/s',
+			't2s_bandwidth': '100.0 GB/s',
+			'duplex': 'full',
 			'color': '#A4A4A4',
 			'width': '3',
-			'shape': 'triangle',
+			'shape': 'none',
 		};
 	}
 
@@ -1166,8 +1243,10 @@ function main(){
 			tip_text += 'time_inst: ' + dat[nt][id]['time_inst'].toPrecision(3) + '<br>'
 			tip_text += 'time: ' + dat[nt][id]['time'].toPrecision(3) + '<br>'
 		} else if(nt === 'edge_obj') {
-			tip_text += 'num_move: ' + dat[nt][id]['num_move'].toPrecision(3) + '<br>'
-			tip_text += 'bytes_move: ' + dat[nt][id]['bytes_move'].toPrecision(3) + '<br>'
+			tip_text += 'num_s2t: ' + dat[nt][id]['num_s2t'].toPrecision(3) + '<br>'
+			tip_text += 'num_t2s: ' + dat[nt][id]['num_t2s'].toPrecision(3) + '<br>'
+			tip_text += 'bytes_s2t: ' + dat[nt][id]['bytes_s2t'].toPrecision(3) + '<br>'
+			tip_text += 'bytes_t2s: ' + dat[nt][id]['bytes_t2s'].toPrecision(3) + '<br>'
 			tip_text += 'time: ' + dat[nt][id]['time'].toPrecision(3) + '<br>'
 		} else {
 			//cache,mem,router
@@ -1209,6 +1288,19 @@ function main(){
 
 	cy.on('mouseout', 'ele', e => {
 		tip.destroy();
+	});
+
+	//----------------------------------------------------------------
+	//Realtime
+	document.getElementById('dat_textarea').addEventListener('input', e => {
+		let dat_text = document.getElementById('dat_textarea').value;
+		try{
+			dat = JSON.parse(dat_text);
+			refresh_cy_via_dat();
+		} catch(e) {
+			//console.log('dat_textarea parse error!');
+			document.getElementById('dat_textarea').classList.add('dat_textarea_error');
+		}
 	});
 
 //----------------------------------------------------------------
