@@ -10,6 +10,11 @@
 - For development: Install "Web Server for Chrome" Extension to your Chrome Browser. Set up a private instant server, then select the directory includes index.html.
 
 ----------------
+v14.0 2022/6
+- Change some colors
+- numa_node = -1 means the obj is diable
+
+----------------
 v13.0 2022/6
 
 - Edge duplex: half/full/simplex

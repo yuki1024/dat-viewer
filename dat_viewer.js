@@ -112,10 +112,10 @@ function main(){
 
 		let style = [
 			{ selector: 'node[name]',
-				style: {'content': 'data(name)', 'font-size': node_font_size} },
+				style: {'content': 'data(name)', 'color': '#5A5A5A', 'font-size': node_font_size} },
 			{ selector: 'edge',
-				style: {'curve-style': 'bezier', 'control-point-step-size': 20, 'line-color': '#A4A4A4', 'target-arrow-shape': 'triangle', 'arrow-scale': 1.5} },
-			//#A4A4A4 or #D8D8D8
+				style: {'curve-style': 'bezier', 'control-point-step-size': 20, 'line-color': '#BCBCBC', 'target-arrow-shape': 'triangle', 'arrow-scale': 1.5} },
+			//#A4A4A4 (->BCBCBC) or #D8D8D8
 			//{ selector: ':selected',
 			//	style: {'background-color': 'red', 'line-color': 'red'} },
 
@@ -160,7 +160,9 @@ function main(){
 			let obj_style = {};
 			obj_style.selector = '#'+key;
 			obj_style.style = {};
-			if(dat.core_class[val.class].color) {
+			if(parseInt(val.numa_node) === -1) {
+				obj_style.style['background-color'] = "#BCBCBC";
+			} else if(dat.core_class[val.class].color) {
 				obj_style.style['background-color'] = dat.core_class[val.class].color;
 			}
 			if(dat.core_class[val.class].shape) {
@@ -189,7 +191,9 @@ function main(){
 			let obj_style = {};
 			obj_style.selector = '#'+key;
 			obj_style.style = {};
-			if(dat.cache_class[val.class].color) {
+			if(parseInt(val.numa_node) === -1) {
+				obj_style.style['background-color'] = "#BCBCBC";
+			} else if(dat.cache_class[val.class].color) {
 				obj_style.style['background-color'] = dat.cache_class[val.class].color;
 			}
 			if(dat.cache_class[val.class].shape) {
@@ -218,7 +222,9 @@ function main(){
 			let obj_style = {};
 			obj_style.selector = '#'+key;
 			obj_style.style = {};
-			if(dat.mem_class[val.class].color) {
+			if(parseInt(val.numa_node) === -1) {
+				obj_style.style['background-color'] = "#BCBCBC";
+			} else if(dat.mem_class[val.class].color) {
 				obj_style.style['background-color'] = dat.mem_class[val.class].color;
 			}
 			if(dat.mem_class[val.class].shape) {
@@ -247,7 +253,9 @@ function main(){
 			let obj_style = {};
 			obj_style.selector = '#'+key;
 			obj_style.style = {};
-			if(dat.router_class[val.class].color) {
+			if(parseInt(val.numa_node) === -1) {
+				obj_style.style['background-color'] = "#BCBCBC";
+			} else if(dat.router_class[val.class].color) {
 				obj_style.style['background-color'] = dat.router_class[val.class].color;
 			}
 			if(dat.router_class[val.class].shape) {
@@ -625,6 +633,9 @@ function main(){
 					//single color
 					let this_obj_style = {};
 					this_obj_style['background-color'] = numa_node_color_list[parseInt(val.numa_node)%8];
+					if(parseInt(val.numa_node) === -1){
+						this_obj_style['background-color'] = '#BCBCBC';
+					}
 					cy.style().selector('#'+key).style(this_obj_style).update();
 
 				} else {
@@ -680,7 +691,7 @@ function main(){
 		if (min_time === Number.MAX_VALUE) { min_time = 0; }
 
 		for (const [key, val] of Object.entries(dat.core_obj)){
-			cy.style().selector('#'+key).style({'background-color': '#A4A4A4'}).update();
+			cy.style().selector('#'+key).style({'background-color': '#BCBCBC'}).update();
 		}
 
 		['core_obj', 'cache_obj', 'mem_obj', 'router_obj', 'edge_obj'].forEach(node_type => {
@@ -689,7 +700,7 @@ function main(){
 				if(val.time > 0){
 					color_temp = gen_color(val.time, min_time, max_time);
 				} else {
-					color_temp = '#A4A4A4';
+					color_temp = '#BCBCBC';
 				}
 				let this_obj_style = {};
 				if (node_type === 'edge_obj') {
@@ -1196,7 +1207,7 @@ function main(){
 			'read_bandwidth': '100.0 GB/s',
 			'write_bandwidth': '100.0 GB/s',
 			'duplex': 'half',
-			'color': '#8995FF',
+			'color': '#9AA4FE',
 			'shape': 'diamond',
 			'width': '20',
 			'height': '20',
@@ -1209,7 +1220,7 @@ function main(){
 			's2t_bandwidth': '100.0 GB/s',
 			't2s_bandwidth': '100.0 GB/s',
 			'duplex': 'full',
-			'color': '#A4A4A4',
+			'color': '#BCBCBC',
 			'width': '3',
 			'shape': 'none',
 		};
